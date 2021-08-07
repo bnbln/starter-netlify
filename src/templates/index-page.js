@@ -5,9 +5,9 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Banner from '../components/Banner'
 import Hero from '../components/Hero'
-// import Carousel from '../components/Carousel'
+import Carousel from '../components/Carousel'
 import Map from '../components/Map'
-// import BlogRoll from '../components/BlogRoll'
+import BlogRoll from '../components/BlogRoll'
 
 import Button from '../components/Button'
 
@@ -22,12 +22,12 @@ export const IndexPageTemplate = ({
     <Hero hero={hero} variant="light" />
     <Banner>
       <div className="left">
-        {/* {banner01.bannerimage ?
+        {banner01.bannerimage ?
           <img 
             src={!!banner01.bannerimage.childImageSharp ? banner01.bannerimage.childImageSharp.fluid.src : banner01.bannerimage}
             alt=""
           />
-        : null} */}
+        : null}
       </div>
       <div className="right white">
         <h2>{banner01.heading}</h2>
@@ -35,7 +35,7 @@ export const IndexPageTemplate = ({
         <Button variant="white" to="/contact">{banner01.bannercta}</Button>
       </div>
     </Banner>
-    {/* <Carousel data={intro} /> */}
+    <Carousel data={intro} />
     <Map />
     <Banner>
       <div className="left" style={{paddingTop:40, paddingBottom: 40}}>
@@ -45,7 +45,7 @@ export const IndexPageTemplate = ({
         <Button variant="white" to="/about">{banner02.cta}</Button>
       </div>   
     </Banner>
-    {/* <BlogRoll /> */}
+    <BlogRoll />
   </>
 )
 
@@ -105,11 +105,25 @@ export const pageQuery = graphql`
           title
           lead
           cta
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         banner01 {
           heading
           subheading
           bannercta
+          bannerimage {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
 
         }
         banner02 {
@@ -118,7 +132,13 @@ export const pageQuery = graphql`
         }
         intro {
           blurbs {
-
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             text
           }
           heading
