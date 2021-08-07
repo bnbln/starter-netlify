@@ -4,24 +4,27 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+import Hero from '../components/Hero'
+
+
+export const AboutPageTemplate = ({ title, lead, cta, image, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <PageContent className="content" content={content} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <>
+      <Hero hero={
+        {
+          title: title, 
+          lead: lead,
+          cta: cta,
+          // image: image
+        }
+      }
+      variant="dark" /> 
+      <section className="mymargins">
+        <PageContent className="content" content={content} />
+      </section>
+    </>
   )
 }
 
@@ -39,6 +42,9 @@ const AboutPage = ({ data }) => {
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
+        lead={post.frontmatter.lead}
+        cta={post.frontmatter.cta}
+        // image={post.frontmatter.image}
         content={post.html}
       />
     </Layout>
@@ -57,6 +63,9 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        lead
+        cta
+
       }
     }
   }
