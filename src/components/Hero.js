@@ -16,7 +16,7 @@ function Hero(props) {
                     <Logo />
                     <nav>
                     <Link className="navbar-item" to="/">Home</Link>
-                    <Link className="navbar-item" to="/about">Rechtsfragen</Link>
+                    <Link className="navbar-item" to="/recht">Rechtsfragen</Link>
                     <Link className="navbar-item" to="/about">Anwalt</Link>
                     <Link className="navbar-item" to="/blog">Aktuelles</Link>
                     <Link className="navbar-item" to="/contact">Kontakt</Link>

@@ -47,7 +47,7 @@ class BlogRoll extends React.Component {
                   <ArticleLarge
                     key={"post-l-"+i}
                     image={post.frontmatter.featuredimage}
-                    dach={post.frontmatter.date}
+                    dach={post.frontmatter.recht ? post.frontmatter.recht: post.frontmatter.date}
                     description={post.frontmatter.description}
                     headline={post.frontmatter.title}
                     href={post.fields.slug}
@@ -59,7 +59,7 @@ class BlogRoll extends React.Component {
                 <ArticleSmall
                   key={"post-s-"+i}
                   image={post.frontmatter.featuredimage}
-                  dach={post.frontmatter.date}
+                  dach={post.frontmatter.recht ? post.frontmatter.recht: post.frontmatter.date}
                   headline={post.frontmatter.title}
                   href={post.fields.slug}
                 />
@@ -97,6 +97,7 @@ export default () => (
                 title
                 description
                 templateKey
+                recht
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
                 featuredimage {
