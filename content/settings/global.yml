@@ -1,0 +1,46 @@
+site: rk.de
+description: Kanzlei am Witti
+seo: abc abc
+image: /img/headerimage.jpg
+menu:
+  - name: Home
+    to: /
+  - name: Rechtsfragen
+    to: /recht
+  - name: Anwalt
+    to: /about
+  - name: Aktuelles
+    to: /blog
+  - name: Kontakt
+    to: /contact
+footermenu:
+  - name: Kontakt
+    to: /contact
+  - name: Impressum
+    to: /
+  - name: Datenschutzerklärung
+    to: /
+contact:
+  info: |-
+    **Rechtsanwälte in Bürogemeinschaft**\
+    T\
+    Zivilrecht
+
+    A\
+    Fachanwältin für Verkehrsrecht
+
+    T\
+    Fachanwältin für Arbeitsrecht
+  contact: |-
+    **Anschrift**\
+    Ans\
+    10787
+
+    **Kontaktdaten**\
+    Telefon:\
+    Fax:\
+    Mail:
+  open: |-
+    **Sprechzeiten**\
+    Mo-Fr 9:00-12:00 Uhr\
+    Mo, Di, Do 15:00-18:00 Uhr
