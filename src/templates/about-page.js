@@ -65,7 +65,7 @@ export const aboutPageQuery = graphql`
         title
         lead
         cta
-
+        
       }
     }
   }
