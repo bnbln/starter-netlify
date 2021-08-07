@@ -2,9 +2,12 @@
 templateKey: about-page
 path: /about
 title: About our values
-lead: Kaldi is the ultimate spot for coffee lovers who want to learn about their java’s origin and support the farmers that grew it. We take coffee production, roasting and brewing seriously and we’re glad to pass that knowledge to anyone. This is an edit via identity...
+lead: Kaldi is the ultimate spot for coffee lovers who want to learn about their
+  java’s origin and support the farmers that grew it. We take coffee production,
+  roasting and brewing seriously and we’re glad to pass that knowledge to
+  anyone. This is an edit via identity...
 cta: Kontakt aufnehmen
-image: /img/imageAbout.png
+image: /img/imageabout.png
 ---
 ## Lebenslauf
 
