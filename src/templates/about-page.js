@@ -17,7 +17,7 @@ export const AboutPageTemplate = ({ title, lead, cta, image, content, contentCom
           title: title, 
           lead: lead,
           cta: cta,
-          // image: image
+          image: image
         }
       }
       variant="dark" /> 
@@ -44,7 +44,7 @@ const AboutPage = ({ data }) => {
         title={post.frontmatter.title}
         lead={post.frontmatter.lead}
         cta={post.frontmatter.cta}
-        // image={post.frontmatter.image}
+        image={post.frontmatter.image}
         content={post.html}
       />
     </Layout>
@@ -65,7 +65,13 @@ export const aboutPageQuery = graphql`
         title
         lead
         cta
-        
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

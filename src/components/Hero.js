@@ -34,7 +34,7 @@ function Hero(props) {
                 {hero.image ?
                 <BackgroundImage
                 Tag="div"
-                fluid={hero.image.childImageSharp.fluid}
+                fluid={!!hero.image.childImageSharp ? hero.image.childImageSharp.fluid : hero.image}
                 backgroundColor={`#040e18`}
                 style={{
                     width: "100%", height: "100%"

@@ -34,6 +34,16 @@ collections:
           - {label: CTA, name: cta, widget: string}
           - {label: Bild, name: image, widget: image}
           - {label: "Body", name: "body", widget: "markdown"}
+  - name: "recht"
+    label: "Rechtsfragen"
+    folder: "src/pages/recht"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "recht-post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: Lead, name: lead, widget: string}
+      - {label: Icon, name: image, widget: image}
   - name: "blog"
     label: "Aktuelles"
     folder: "src/pages/blog"
@@ -43,6 +53,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Rechtsbereich", name: "recht", widget: "relation", collection: "recht", search_fields: ["title"], value_field: "title", display_fields: ["title"]}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
       - {label: "Featured Image", name: "featuredimage", widget: image}
