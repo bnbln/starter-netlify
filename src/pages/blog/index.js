@@ -1,12 +1,14 @@
 import React from 'react'
 
 import Layout from '../../components/Layout'
+import Hero from '../../components/Hero'
 import BlogRoll from '../../components/BlogRoll'
 
 export default class BlogIndexPage extends React.Component {
   render() {
     return (
       <Layout>
+        <Hero hero={[]} variant="light" />
         <div
           className="full-width-image-container margin-top-0"
           style={{
