@@ -12,78 +12,108 @@ import BlogRoll from '../components/BlogRoll'
 import Button from '../components/Button'
 
 
-export const IndexPageTemplate = ({
-  hero,
-  banner01,
-  intro,
-  banner02
-}) => (
-  <>
-    <Hero hero={hero} variant="light" />
-    <Banner>
-      <div className="left">
-        {banner01.bannerimage ?
-          <img 
-            src={!!banner01.bannerimage.childImageSharp ? banner01.bannerimage.childImageSharp.fluid.src : banner01.bannerimage}
-            alt=""
-          />
-        : null}
-      </div>
-      <div className="right white">
-        <h2>{banner01.heading}</h2>
-        <p className="lead">{banner01.subheading}</p>
-        <Button variant="white" to="/contact">{banner01.bannercta}</Button>
-      </div>
-    </Banner>
-    <Carousel data={intro} />
-    <Map />
-    <Banner>
-      <div className="left" style={{paddingTop:40, paddingBottom: 40}}>
-        <h1 className="white" style={{textAlign: "right"}}>{banner02.heading}</h1>
-      </div>
-      <div className="right white" style={{paddingTop:40, paddingBottom: 40}}>
-        <Button variant="white" to="/about">{banner02.cta}</Button>
-      </div>   
-    </Banner>
-    <BlogRoll />
-  </>
-)
+// export const IndexPageTemplate = ({
+//   data,
+//   hero,
+//   banner01,
+//   intro,
+//   banner02
+// }) => (
+//   <>
+//     <Hero hero={hero} variant="light" />
+//     {console.log(data)}
+//     {/* <Banner>
+//       <div className="left">
+//         {banner01.bannerimage ?
+//           <img 
+//             src={!!banner01.bannerimage.childImageSharp ? banner01.bannerimage.childImageSharp.fluid.src : banner01.bannerimage}
+//             alt=""
+//           />
+//         : null}
+//       </div>
+//       <div className="right white">
+//         <h2>{banner01.heading}</h2>
+//         <p className="lead">{banner01.subheading}</p>
+//         <Button variant="white" to="/contact">{banner01.bannercta}</Button>
+//       </div>
+//     </Banner>
+//     <Carousel data={intro} />
+//     <Map />
+//     <Banner>
+//       <div className="left" style={{paddingTop:40, paddingBottom: 40}}>
+//         <h1 className="white" style={{textAlign: "right"}}>{banner02.heading}</h1>
+//       </div>
+//       <div className="right white" style={{paddingTop:40, paddingBottom: 40}}>
+//         <Button variant="white" to="/about">{banner02.cta}</Button>
+//       </div>   
+//     </Banner>
+//     <BlogRoll /> */}
+//   </>
+// )
 
-IndexPageTemplate.propTypes = {
-  hero: PropTypes.shape({
-    title: PropTypes.string,
-    lead: PropTypes.string,
-  })
-}
+// IndexPageTemplate.propTypes = {
+//   data: PropTypes.shape({
+//     posts: PropTypes.object
+//   }),
+//   hero: PropTypes.shape({
+//     title: PropTypes.string,
+//     lead: PropTypes.string,
+//   })
+// }
 
-const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-  return (
-    <Layout>
-      <IndexPageTemplate
-        hero={frontmatter.hero}
-      />
-    </Layout>
-  )
-}
+// const IndexPage = ({ data }) => {
+//   const { frontmatter } = data.markdownRemark
+//   return (
+//     <Layout>
+//       <IndexPageTemplate
+//         hero={frontmatter.hero}
+//         data={data}
+//       />
+//     </Layout>
+//   )
+// }
 
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-}
+// IndexPage.propTypes = {
+//   data: PropTypes.shape({
+//     page: PropTypes.shape({
+//       frontmatter: PropTypes.object,
+//     }),
+//     posts: PropTypes.shape({
+//       frontmatter: PropTypes.object
+//     })
+//   }),
+// }
 
-export default IndexPage
+// export default IndexPage
+export default ComponentName = ({ data }) => <pre>{JSON.stringify(data, null, 4)}</pre>
 
 export const pageQuery = graphql`
   query RechtPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "recht-page" } }) {
+    page: markdownRemark(frontmatter: {templateKey: {eq: "recht-page"}}) {
+      id
       frontmatter {
         hero {
-          title
           lead
+          title
+        }
+        banner {
+          text
+          title
+        }
+      }
+    }
+    posts: markdownRemark(frontmatter: {templateKey: {eq: "recht-post"}}) {
+      id
+      frontmatter {
+        title
+        lead
+        banner {
+          title
+          text
+        }
+        article {
+          title
+          body
         }
       }
     }

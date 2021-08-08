@@ -3,42 +3,25 @@ import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import Layout from '../../components/Layout'
 import Hero from '../../components/Hero'
-
-import BlogRoll from '../../components/BlogRoll'
+import Carousel from "../../components/Carousel"
 
 class BlogIndexPage extends React.Component {
   render() {
     const { data } = this.props
-    console.log(data);
+    console.log(data.page.frontmatter.banner);
     return (
       <Layout>
-       <Hero hero={[]} variant="light" />
-
-        <div
-          className="full-width-image-container margin-top-0"
-          style={{
-            backgroundImage: `url('/img/blog-index.jpg')`,
-          }}
-        >
-          <h1
-            className="has-text-weight-bold is-size-1"
-            style={{
-              boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-              backgroundColor: '#f40',
-              color: 'white',
-              padding: '1rem',
-            }}
-          >
-            Latest Stories
-          </h1>
-        </div>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <BlogRoll />
+        <Hero hero={data.page.frontmatter.hero} variant="light">
+          <Carousel />
+        </Hero>
+        <div>
+          {data.page.frontmatter.banner.map((item, i)=> (
+            <div key={"banner"+i}> 
+              <h6>{item.title}</h6>
+              <p>{item.text}</p>
             </div>
-          </div>
-        </section>
+          ))}
+        </div>
       </Layout>
     )
   }
@@ -56,12 +39,49 @@ export default () => (
   <StaticQuery
 query={graphql`
   {
-    markdownRemark(frontmatter: {templateKey: {eq: "recht-page"}}) {
+    page: markdownRemark(frontmatter: {templateKey: {eq: "recht-page"}}) {
+      id
       frontmatter {
-        templateKey
         hero {
           lead
           title
+        }
+        banner {
+          text
+          title
+        }
+      }
+    }
+    posts: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "recht-post"}}}) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            lead
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            picture {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            banner {
+              text
+              title
+            }
+            article {
+              body
+              title
+            }
+          }
         }
       }
     }

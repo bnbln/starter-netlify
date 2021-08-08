@@ -15,7 +15,6 @@ import Button from '../components/Button'
 export const IndexPageTemplate = ({
   hero,
   banner01,
-  intro,
   banner02
 }) => (
   <>
@@ -35,7 +34,7 @@ export const IndexPageTemplate = ({
         <Button variant="white" to="/contact">{banner01.bannercta}</Button>
       </div>
     </Banner>
-    <Carousel data={intro} />
+    <Carousel />
     <Map />
     <Banner>
       <div className="left" style={{paddingTop:40, paddingBottom: 40}}>
@@ -63,9 +62,6 @@ IndexPageTemplate.propTypes = {
     subheading: PropTypes.string,
     bannercta: PropTypes.string,
   }),
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
   banner02: PropTypes.shape({
     heading: PropTypes.string,
     cta: PropTypes.string,
@@ -79,7 +75,6 @@ const IndexPage = ({ data }) => {
       <IndexPageTemplate
         hero={frontmatter.hero}
         banner01={frontmatter.banner01}
-        intro={frontmatter.intro}
         banner02={frontmatter.banner02}
       />
     </Layout>
@@ -129,20 +124,6 @@ export const pageQuery = graphql`
         banner02 {
           heading
           cta
-        }
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
         }
       }
     }

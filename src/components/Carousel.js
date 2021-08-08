@@ -1,38 +1,33 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {Transition, config, animated} from "react-spring"
-
-import truck from "../../public/img/truck.svg"
-import home from "../../public/img/home.svg"
-import file from "../../public/img/file-text.svg"
- 
+import { Link, graphql, StaticQuery } from 'gatsby'
 
 function Carousel(props) {
     const [active, setActive] = useState(0)
-    const item00 = useRef()
-    const item01 = useRef()
-    const item02 = useRef()
-    setTimeout(()=> setActive(active < 2 ? active+1 : 0), 4000)
     var data = props.data
+    setTimeout(()=> setActive(active < (data.posts.edges.length-1) ? active+1 : 0), 4000)
     return(
         <div className="carousel top">
-            <div className="text">
-                <h2>{data.heading}</h2>
-                <p className="lead">{data.description}</p>
+             <div className="text">
+                <h2>{data.page.frontmatter.hero.title}</h2>
+                <p className="lead">{data.page.frontmatter.hero.lead}</p>
                 <div className="textslider">
-                    <div className={active === 0 ? "item active" : "item"} ref={item00} id="0">
-                        <img src={file} alt="" />
-                        <h4>Versicherungen</h4>
-                    </div>
-                    <div className={active === 1 ? "item active" : "item"} ref={item01} id="1">
-                        <img src={truck} alt="" />
-                        <h4>Verkehrsrecht</h4>
-                    </div>
-                    <div className={active === 2 ? "item active" : "item"} ref={item02} id="2">
-                        <img src={home} alt="" />
-                        <h4>Mietrecht</h4>
-                    </div>
+                    {data.posts.edges.map((item,i)=> (
+                        <Link to={item.node.fields.slug} id={i} key={"carouselitem-"+i}>
+                            <div className={active === i ? "item active" : "item"}>
+                                {item.node.frontmatter.image.extension === "svg" ? 
+                                    <img src={item.node.frontmatter.image.publicURL} alt="" />
+                                    : 
+                                    <img src={item.node.frontmatter.image.childImageSharp ? item.node.frontmatter.image.childImageSharp.fluid.src : item.node.frontmatter.image} alt="" />
+                                }
+                                <h4>{item.node.frontmatter.title}</h4>
+                            </div>
+                        </Link>
+                    )
+                    )}
                 </div>
             </div>
+            
             <div className="imagesliderwrapper">
                 <div className="imageslider">
                     <Transition
@@ -47,7 +42,7 @@ function Carousel(props) {
                         {({ opacity, translateX }, item) =>
                         item === 0 ? (
                             <animated.img src={
-                                data.blurbs[0].image.childImageSharp ? data.blurbs[0].image.childImageSharp.fluid.src : data.blurbs[0].image
+                                data.posts.edges[0].node.frontmatter.picture.childImageSharp ? data.posts.edges[0].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[0].node.frontmatter.picture
                             } className={active === 0 ? "item active" : "item"} alt=""
                                 style={{
                                     opacity: opacity,
@@ -56,7 +51,7 @@ function Carousel(props) {
                             />
                         ) : item === 1 ? (
                             <animated.img src={
-                                data.blurbs[1].image.childImageSharp ? data.blurbs[1].image.childImageSharp.fluid.src : data.blurbs[1].image
+                                data.posts.edges[1].node.frontmatter.picture.childImageSharp ? data.posts.edges[1].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[1].node.frontmatter.picture
                             } className={active === 1 ? "item active" : "item"} alt=""
                             style={{
                                 opacity: opacity,
@@ -65,7 +60,7 @@ function Carousel(props) {
                             />
                         ) : (
                             <animated.img src={
-                                data.blurbs[2].image.childImageSharp ? data.blurbs[2].image.childImageSharp.fluid.src : data.blurbs[2].image
+                                data.posts.edges[2].node.frontmatter.picture.childImageSharp ? data.posts.edges[2].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[2].node.frontmatter.picture
                             } className={active === 2 ? "item active" : "item"} alt="" 
                             style={{
                                 opacity: opacity,
@@ -81,4 +76,63 @@ function Carousel(props) {
     )
 }
 
-export default Carousel
+export default () => (
+    <StaticQuery
+  query={graphql`
+    {
+      page: markdownRemark(frontmatter: {templateKey: {eq: "recht-page"}}) {
+        id
+        frontmatter {
+          hero {
+            lead
+            title
+          }
+          banner {
+            text
+            title
+          }
+        }
+      }
+      posts: allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "recht-post"}}}) {
+        edges {
+          node {
+            id
+            fields {
+                slug
+              }
+            frontmatter {
+              title
+              lead
+              image {
+                publicURL
+                extension
+                childImageSharp {
+                  fluid(maxWidth: 2048, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+              picture {
+                childImageSharp {
+                  fluid(maxWidth: 2048, quality: 100) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+              banner {
+                text
+                title
+              }
+              article {
+                body
+                title
+              }
+            }
+          }
+        }
+      }
+    }
+  `}
+  render={(data, count) => <Carousel data={data} count={count} />}
+  />
+  )

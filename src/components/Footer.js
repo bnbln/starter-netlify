@@ -19,10 +19,10 @@ const Footer = class extends React.Component {
           </div>
           <div>
             <nav>
-              {meta.menu.map((item, i)=> <Link className="navbar-item" to={item.to}>{item.name}</Link>)}
+              {meta.menu.map((item, i)=> <Link className="navbar-item" to={item.to} key={"footermainnav-"+i}>{item.name}</Link>)}
             </nav>
             <nav>
-              {meta.footermenu.map((item, i)=> <Link className="navbar-item" to={item.to}>{item.name}</Link>)}
+              {meta.footermenu.map((item, i)=> <Link className="navbar-item" to={item.to} key={"footernav-"+i}>{item.name}</Link>)}
             </nav>
           </div>
         </main>

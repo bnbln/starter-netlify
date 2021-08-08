@@ -5,8 +5,11 @@ import { Helmet } from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import Hero from "../components/Hero"
+import BlogRoll from '../components/BlogRoll'
 
 export const BlogPostTemplate = ({
+  data,
   content,
   contentComponent,
   description,
@@ -15,39 +18,30 @@ export const BlogPostTemplate = ({
   helmet,
 }) => {
   const PostContent = contentComponent || Content
-
+  console.log("data", data);
   return (
-    <section className="section">
+    <>
       {helmet || ''}
-      <h1>Recht Post</h1>
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map((tag) => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </div>
-    </section>
+      <Hero hero={{
+        icon: data.markdownRemark.frontmatter.image,
+        title: title,
+        lead: data.markdownRemark.frontmatter.lead,
+        image: data.markdownRemark.frontmatter.picture,
+        list: data.markdownRemark.frontmatter.article
+      }} />
+      <BlogRoll />
+      {data.markdownRemark.frontmatter.article.map((item,i)=> (
+        <section>
+          <h4 id={i}>{item.title}</h4>
+          <p dangerouslySetInnerHTML={{ __html: item.body }}></p>
+        </section>
+      ))}
+    </>
   )
 }
 
 BlogPostTemplate.propTypes = {
+  data: PropTypes.object,
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -57,10 +51,11 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data
-
+  console.log(data);
   return (
     <Layout>
       <BlogPostTemplate
+        data={data}
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
@@ -95,6 +90,31 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        lead
+        image {
+          publicURL
+          extension
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        picture {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        banner {
+          title
+          text
+        }
+        article {
+          title
+          body
+        }
       }
     }
   }
