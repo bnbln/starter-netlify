@@ -17,9 +17,9 @@ footermenu:
   - name: Kontakt
     to: /contact
   - name: Impressum
-    to: /
+    to: /impressum
   - name: Datenschutzerklärung
-    to: /
+    to: /datenschutz
 contact:
   info: |-
     **Rechtsanwälte in Bürogemeinschaft**\

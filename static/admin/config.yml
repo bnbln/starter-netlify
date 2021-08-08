@@ -22,7 +22,6 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: Hero, name: hero, widget: object, fields: [{label: Bild, name: image, widget: image}, {label: Dachzeile, name: dachzeile, widget: string}, {label: Titel, name: title, widget: string}, {label: Lead, name: lead, widget: string}, {label: CTA, name: cta, widget: string}]}
           - {label: Banner, name: banner01, widget: object, fields: [{label: Bild, name: bannerimage, widget: image}, {label: Titel, name: heading, widget: string}, {label: Lead, name: subheading, widget: string}, {label: CTA, name: bannercta, widget: string}]}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
           - {label: Banner, name: banner02, widget: object, fields: [{label: Titel, name: heading, widget: string}, {label: Kontakt Banner CTA, name: cta, widget: string}]}
       - file: "src/pages/recht.md"
         label: "Rechtsfragen"
