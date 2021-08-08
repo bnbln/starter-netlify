@@ -7,7 +7,7 @@ hero:
   cta: Über mich
   image: /img/headerimage.jpg
 banner01:
-  bannerimage: /img/products-grid2.jpg
+  bannerimage: /img/imageabout.png
   heading: Unsere Kanzlei am Wittenbergplatz
   subheading: Lernen Sie uns, unsere Stärken und Kolleg*innen besser kennen
   bannercta: Kontakt aufnehmen
