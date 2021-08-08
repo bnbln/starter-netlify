@@ -7,6 +7,7 @@ import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import Hero from "../components/Hero"
 import BlogRoll from '../components/BlogRoll'
+import Banner from '../components/Banner'
 
 export const BlogPostTemplate = ({
   data,
@@ -29,6 +30,14 @@ export const BlogPostTemplate = ({
         image: data.markdownRemark.frontmatter.picture,
         list: data.markdownRemark.frontmatter.article
       }} />
+      {data.markdownRemark.frontmatter.banner.map((item,i)=> (
+        <Banner key={"banner"+i} counter={i}>
+          <div className="left white">
+            <h2>{item.title}</h2>
+            <p>{item.text}</p>
+          </div>
+        </Banner>
+      ))}
       <BlogRoll />
       {data.markdownRemark.frontmatter.article.map((item,i)=> (
         <section>

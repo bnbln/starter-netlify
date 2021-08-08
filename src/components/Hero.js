@@ -40,7 +40,7 @@ function Hero(props) {
                             ))}
                         </div>
                     : null}
-                    {/* {props.children} */}
+                    {props.children}
                 </div>
             </div>
             <div className="image" style={{position: "relative"}}>
@@ -54,7 +54,7 @@ function Hero(props) {
                 }}
                 > 
             </BackgroundImage>
-            :null}
+            : props.imageslider ? props.imageslider : null}
             </div>
         </div>
     </div>

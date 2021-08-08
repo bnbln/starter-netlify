@@ -111,6 +111,14 @@ li::before
         color: white
     .primary
       color: white
+  .imageslider
+    width: 100%
+    height: 100%
+    position: relative
+    overflow: hidden
+    img
+      height: 100%
+      position: absolute
   // Logo
 
   .logo h1 
@@ -186,6 +194,8 @@ footer
     flex-direction: column
     justify-content: center
     gap: 20px
+.banner.nr1
+   background: lighten($primary, 80%)
 
 @media only screen and (max-width: 900px) 
   .banner 
@@ -196,16 +206,22 @@ footer
       
 // Carousel
 .carousel
-  display: grid
-  grid-template-areas: "left right"
-  grid-template-columns: 60% 1fr
-  .text 
-    grid-area: left
-    padding: 6rem
-    display: flex
-    flex-direction: column
-    justify-content: center
-    gap: 20px
+  &.page
+    display: grid
+    grid-template-areas: "left right"
+    grid-template-columns: 60% 1fr
+    .text
+      grid-area: left
+      padding: 6rem
+      display: flex
+      flex-direction: column
+      justify-content: center
+      gap: 20px
+  &.single
+    .text.single
+      padding: 0px
+      margin: 0px
+      padding-left: 0px
   .textslider 
     display: flex
     flex-direction: row

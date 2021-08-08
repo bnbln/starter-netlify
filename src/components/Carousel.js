@@ -7,7 +7,7 @@ function Carousel(props) {
     var data = props.data
     setTimeout(()=> setActive(active < (data.posts.edges.length-1) ? active+1 : 0), 4000)
     return(
-        <div className="carousel top">
+        <div className="carousel page top">
              <div className="text">
                 <h2>{data.page.frontmatter.hero.title}</h2>
                 <p className="lead">{data.page.frontmatter.hero.lead}</p>
