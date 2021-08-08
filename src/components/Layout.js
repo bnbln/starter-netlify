@@ -5,8 +5,11 @@ import './all.sass'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
+import metadatafromyml from "../../content/settings/global.yml"
+
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
+  console.log(metadatafromyml)
   return (
     <div>
       <Helmet>

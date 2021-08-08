@@ -5,21 +5,20 @@ import BackgroundImage from 'gatsby-background-image'
 import Logo from '../components/Logo'
 import Button from '../components/Button'
 
+import meta from "../../content/settings/global.yml"
+
+
 function Hero(props) {
     var hero = props.hero
-    console.log(hero);
+    console.log(meta.menu);
     return(
     <div className={"hero " + props.variant}>
         <div className="layout">
             <div className="grid">
                 <header>
-                    <Logo />
+                    <Logo meta={meta} />
                     <nav>
-                    <Link className="navbar-item" to="/">Home</Link>
-                    <Link className="navbar-item" to="/recht">Rechtsfragen</Link>
-                    <Link className="navbar-item" to="/about">Anwalt</Link>
-                    <Link className="navbar-item" to="/blog">Aktuelles</Link>
-                    <Link className="navbar-item" to="/contact">Kontakt</Link>
+                        {meta.menu.map((item, i)=> <Link className="navbar-item" to={item.to}>{item.name}</Link>)}
                     </nav>
                 </header>
             <div className="text">
