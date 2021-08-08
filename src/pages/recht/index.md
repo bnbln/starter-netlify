@@ -1,4 +1,5 @@
 ---
+templateKey: recht-page
 hero:
   title: Individuelle Fälle erfordern individuelle Lösungsansätze
   lead: Wir haben es geschafft, verschiedene Fälle für unsere Mandanten zu gewinnen
