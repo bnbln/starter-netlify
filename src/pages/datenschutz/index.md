@@ -1,5 +1,5 @@
 ---
-templateKey: impressum-page
+templateKey: datenschutz-page
 title: Impressum
 lead: Nehmen Sie kontakt mit uns auf und vereinbaren Sie einen Beratungstermin
 icon: /img/navigation.svg
