@@ -10,7 +10,7 @@ import meta from "../../content/settings/global.yml"
 
 function Hero(props) {
     var hero = props.hero
-    console.log(meta.menu);
+    console.log(props);
     return(
     <div className={"hero " + props.variant}>
         <div className="layout">

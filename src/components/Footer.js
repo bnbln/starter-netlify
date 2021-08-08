@@ -1,13 +1,9 @@
 import React from 'react'
 import Logo from './Logo'
+import { Link } from 'gatsby'
+import Content, { HTMLContent } from './Content'
 
-// import { Link } from 'gatsby'
-
-// import logo from '../img/logo.svg'
-// import facebook from '../img/social/facebook.svg'
-// import instagram from '../img/social/instagram.svg'
-// import twitter from '../img/social/twitter.svg'
-// import vimeo from '../img/social/vimeo.svg'
+import meta from "../../content/settings/global.yml"
 
 const Footer = class extends React.Component {
   render() {
@@ -16,31 +12,18 @@ const Footer = class extends React.Component {
         <Logo size="long" color="white"></Logo>
         <main>
           <div>
-            <p>
-              <b>Rechtsanwälte in Bürogemeinschaft</b>
-            </p>
-            <p>
-              TS <br /> Zivilrecht
-            </p>
-            <p>
-              TS <br /> Zivilrecht
-            </p>
-            <p>
-              TS <br /> Zivilrecht
-            </p>
+            <Content content={meta.contact.info} />
           </div>
           <div>
-            <p>
-              AnsStr 13 <br /> Berlin
-            </p>
-            <p>
-              Telefon: <br />
-              Fax: <br />
-              Mail:{' '}
-            </p>
+            <Content content={meta.contact.contact} />
           </div>
           <div>
-            <nav></nav>
+            <nav>
+              {meta.menu.map((item, i)=> <Link className="navbar-item" to={item.to}>{item.name}</Link>)}
+            </nav>
+            <nav>
+              {meta.footermenu.map((item, i)=> <Link className="navbar-item" to={item.to}>{item.name}</Link>)}
+            </nav>
           </div>
         </main>
       </footer>

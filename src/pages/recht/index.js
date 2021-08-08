@@ -1,12 +1,19 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
+import { Link, graphql, StaticQuery } from 'gatsby'
 import Layout from '../../components/Layout'
+import Hero from '../../components/Hero'
+
 import BlogRoll from '../../components/BlogRoll'
 
-export default class BlogIndexPage extends React.Component {
+class BlogIndexPage extends React.Component {
   render() {
+    const { data } = this.props
+    console.log(data);
     return (
       <Layout>
+       <Hero hero={[]} variant="light" />
+
         <div
           className="full-width-image-container margin-top-0"
           style={{
@@ -36,3 +43,30 @@ export default class BlogIndexPage extends React.Component {
     )
   }
 }
+
+BlogIndexPage.propTypes = {
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array,
+    }),
+  }),
+}
+
+export default () => (
+  <StaticQuery
+query={graphql`
+  {
+    markdownRemark(frontmatter: {templateKey: {eq: "recht-page"}}) {
+      frontmatter {
+        templateKey
+        hero {
+          lead
+          title
+        }
+      }
+    }
+  }
+`}
+render={(data, count) => <BlogIndexPage data={data} count={count} />}
+/>
+)
