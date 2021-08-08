@@ -41,7 +41,7 @@ export const IndexPageTemplate = ({
         <h1 className="white" style={{textAlign: "right"}}>{banner02.heading}</h1>
       </div>
       <div className="right white" style={{paddingTop:40, paddingBottom: 40}}>
-        <Button variant="white" to="/about">{banner02.cta}</Button>
+        <Button variant="white" to="/contact">{banner02.cta}</Button>
       </div>   
     </Banner>
     <BlogRoll />

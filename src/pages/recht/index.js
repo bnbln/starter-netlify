@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import Layout from '../../components/Layout'
 import Hero from '../../components/Hero'
-import Carousel from "../../components/Carousel"
+import Banner from "../../components/Banner"
 import {Transition, config, animated} from "react-spring"
 
 
@@ -58,12 +58,19 @@ function BlogIndexPage(props) {
               </Transition>
           </div>
         }>
-          <div className="carousel single">
+          <div className="carousel single" style={{
+            padding: "0px",
+            margin: "0px"
+          }}>
           <div className="text" style={{
             padding: "0px",
             margin: "0px"
           }}>
-                <div className="textslider">
+                <div className="textslider" style={{
+            padding: "0px",
+            margin: "0px",
+            marginTop: 24
+          }}>
                     {data.posts.edges.map((item,i)=> (
                         <Link to={item.node.fields.slug} id={i} key={"carouselitem-"+i}>
                             <div className={active === i ? "item active" : "item"}>
@@ -83,10 +90,12 @@ function BlogIndexPage(props) {
         </Hero>
         <div>
           {data.page.frontmatter.banner.map((item, i)=> (
-            <div key={"banner"+i}> 
+            <Banner key={"banner"+i}>
+              <div className="left white">
               <h6>{item.title}</h6>
               <p>{item.text}</p>
-            </div>
+              </div>
+            </Banner>
           ))}
         </div>
       </Layout>

@@ -1,6 +1,8 @@
 import React from 'react'
 import Logo from './Logo'
 import { Link } from 'gatsby'
+import ReactMarkdown from 'react-markdown'
+
 import Content, { HTMLContent } from './Content'
 
 import meta from "../../content/settings/global.yml"
@@ -12,10 +14,10 @@ const Footer = class extends React.Component {
         <Logo size="long" color="white"></Logo>
         <main>
           <div>
-            <Content content={meta.contact.info} />
+            <ReactMarkdown>{meta.contact.info}</ReactMarkdown>
           </div>
           <div>
-            <Content content={meta.contact.contact} />
+            <ReactMarkdown>{meta.contact.contact}</ReactMarkdown>
           </div>
           <div>
             <nav>

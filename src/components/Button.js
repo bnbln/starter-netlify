@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 function Button(props) {
     return(
         <Link to={props.to} className={props.variant ? "button "+ props.variant + "" : "button primary"}>
-             {props.children}
+            {props.children}
         </Link>
         
     )

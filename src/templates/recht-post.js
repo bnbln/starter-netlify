@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import { Helmet } from 'react-helmet'
 import { graphql, Link } from 'gatsby'
+import ReactMarkdown from 'react-markdown'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 import Hero from "../components/Hero"
@@ -40,9 +41,9 @@ export const BlogPostTemplate = ({
       ))}
       <BlogRoll />
       {data.markdownRemark.frontmatter.article.map((item,i)=> (
-        <section>
+        <section className="left right top">
           <h4 id={i}>{item.title}</h4>
-          <p dangerouslySetInnerHTML={{ __html: item.body }}></p>
+          <ReactMarkdown>{item.body}</ReactMarkdown>
         </section>
       ))}
     </>

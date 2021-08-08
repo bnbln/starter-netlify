@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
-import Layout from '../../components/Layout'
-import Hero from '../../components/Hero'
-import Carousel from "../../components/Carousel"
+import Layout from '../components/Layout'
+import Hero from '../components/Hero'
+import Carousel from "../components/Carousel"
 
 class BlogIndexPage extends React.Component {
 

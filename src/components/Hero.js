@@ -36,7 +36,7 @@ function Hero(props) {
                     {hero.list ? 
                         <div>
                             {hero.list.map((item, i) => (
-                                <a href={"#"+i}>{item.title}</a>
+                                <Button to={"#"+i}>{item.title}</Button>
                             ))}
                         </div>
                     : null}
