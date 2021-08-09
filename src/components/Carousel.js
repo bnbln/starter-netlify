@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import {Transition, config, animated} from "react-spring"
 import { Link, graphql, StaticQuery } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
+
 
 function Carousel(props) {
     const [active, setActive] = useState(0)
     var data = props.data
     setTimeout(()=> setActive(active < (data.posts.edges.length-1) ? active+1 : 0), 4000)
     return(
-        <div className="carousel page top">
+        <div className="carousel page">
              <div className="text">
                 <h2>{data.page.frontmatter.hero.title}</h2>
                 <p className="lead">{data.page.frontmatter.hero.lead}</p>
