@@ -42,7 +42,7 @@ class BlogRoll extends React.Component {
 
     return (
       <div className="news top">
-            <div className="">
+            <div className="article-large">
               {posts && posts.slice(0,1).map(({ node: post}, i ) => (
                   <ArticleLarge
                     key={"post-l-"+i}
@@ -54,7 +54,7 @@ class BlogRoll extends React.Component {
                   />
                 ))}
             </div>
-            <div className="">
+            <div className="articles-small">
               {posts && posts.slice(1,6).map(({node: post }, i ) => (
                 <ArticleSmall
                   key={"post-s-"+i}

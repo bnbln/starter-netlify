@@ -37,10 +37,10 @@ export const IndexPageTemplate = ({
     <Carousel />
     <Map />
     <Banner>
-      <div className="left" style={{paddingTop:40, paddingBottom: 40}}>
-        <h1 className="white" style={{textAlign: "right"}}>{banner02.heading}</h1>
+      <div className="left textonly">
+        <h1 className="white">{banner02.heading}</h1>
       </div>
-      <div className="right white" style={{paddingTop:40, paddingBottom: 40}}>
+      <div className="right white textonly">
         <Button variant="white" to="/contact">{banner02.cta}</Button>
       </div>   
     </Banner>

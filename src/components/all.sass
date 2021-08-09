@@ -2,6 +2,14 @@
 
 $primary: #172340
 $secondary: #258EA6
+$mymargin: 6rem
+
+// Breakpoints
+$phone: 700px
+$mymarginphone: 1rem
+$tablet: 1024px
+
+
 
 // Reset 
 *
@@ -26,6 +34,8 @@ h1
   font-weight: bold
   font-size: 47px
   line-height: 149%
+  @media screen and (max-width: $phone)
+    font-size: 20px
 
 h2 
   font-family: Roboto
@@ -33,6 +43,8 @@ h2
   font-weight: bold
   font-size: 39px
   line-height: 149%
+  @media screen and (max-width: $phone)
+    font-size: 18px
 
 .lead 
   font-family: Roboto
@@ -41,6 +53,8 @@ h2
   font-size: 20px
   line-height: 145%
   letter-spacing: -0.01em
+  @media screen and (max-width: $phone)
+    font-size: 16px
 
 ul 
   margin: 0
@@ -55,24 +69,39 @@ li
   font-size: 28px
   line-height: 33px
   letter-spacing: -0.01em
+  @media screen and (max-width: $phone)
+    font-size: 20px
+  
 
 li::before
   content: "◼︎"
   font-size: 40px
   vertical-align: middle
   line-height: 33px
+  @media screen and (max-width: $phone)
+    font-size: 30px
 
 // Margins
 .left
-  margin-left: 6rem
+  margin-left: $mymargin
+  @media screen and (max-width: $phone)
+    margin-left: $mymarginphone
 .top
-  margin-top: 6rem
+  margin-top: $mymargin
+  @media screen and (max-width: $phone)
+    margin-top: $mymarginphone
 .right
-  margin-right: 6rem
+  margin-right: $mymargin
+  @media screen and (max-width: $phone)
+    margin-right: $mymarginphone
 .bottom
-  margin-bottom: 6rem          
+  margin-bottom: $mymargin
+  @media screen and (max-width: $phone)
+    margin-bottom: $mymarginphone          
 .mymargins
-  padding: 6rem
+  padding: $mymargin
+  @media screen and (max-width: $phone)
+    padding: $mymarginphone
 
 // Layout
 .layout 
@@ -82,17 +111,26 @@ li::before
     grid-template-areas: "head image" "main image"
     grid-template-rows: 80px 85vh
     grid-template-columns: 60% 1fr
+    @media screen and (max-width: $phone)
+      grid-template-areas: "head" "image" "main"
+      grid-template-rows: auto auto
+      grid-template-columns: auto auto
     & header 
       grid-area: head
     .text 
       grid-area: main
-      padding-left: 6rem
-      padding-right: calc(1*6rem)
+      padding-left: $mymargin
+      padding-right: $mymargin
       display: flex
       flex-direction: column
       justify-content: center
+      @media screen and (max-width: $phone)
+        padding-left: $mymarginphone 
+        padding-right: $mymarginphone
       * 
         margin: 20px 0px
+        @media screen and (max-width: $phone)
+          margin: 8px 0px
       h1, .lead 
         max-width: 700px
     .image 
@@ -100,6 +138,8 @@ li::before
       background-color: $primary
       background-size: cover
       background-position: center
+      @media screen and (max-width: $phone)
+        height: 300px
 
 // Hero
 .hero
@@ -130,14 +170,19 @@ li::before
     letter-spacing: -0.01em
 
 // Header
+.hero.dark .layout header nav
+  background: $primary
+
 header 
   display: flex
   flex-direction: row
   justify-content: space-between
   align-items: center
   padding: 0px
-  width: calc(100% - 6rem - 6rem)
-  margin: 0px 6rem
+  margin: 0px $mymargin
+  gap: 24px
+  @media screen and (max-width: $phone)
+    margin: 0px $mymarginphone
   a 
     text-decoration: none
     color: $primary
@@ -146,6 +191,11 @@ header
     flex-direction: row
     align-items: flex-start
     gap: 16px
+    background: white
+    padding: 1rem
+    z-index: 1
+    @media screen and (max-width: $phone)
+      display: none
     a 
       color: var(--primary)
       opacity: 0.6
@@ -164,15 +214,19 @@ footer
   display: flex
   flex-direction: column
   align-items: flex-start
-  padding: 6rem
+  padding: $mymargin
   background-color: $primary
   color: white
+  @media screen and (max-width: $phone)
+    padding: $mymarginphone
   main 
     width: 100%
     display: flex
     flex-direction: row
     justify-content: space-between
     align-items: flex-start
+    @media screen and (max-width: $phone)
+      flex-direction: column
 
 
 // Banner
@@ -181,29 +235,48 @@ footer
   display: grid
   grid-template-areas: "left right"
   grid-template-columns: 60% 1fr
+  @media screen and (max-width: $phone)
+    grid-template-areas: "left" "right"
+    grid-template-columns: 100% 100%
   .left 
     grid-area: left
-    padding: 6rem
+    padding: $mymargin
     padding-left: 0px
+    &.textonly
+      padding-top: 40px
+      padding-bottom: 40px
+      @media screen and (max-width: $phone)
+        padding: 16px
+      h1
+        text-align: right
+        @media screen and (max-width: $phone)
+          text-align: center
+    @media screen and (max-width: $phone)
+      padding: $mymarginphone  
+      margin: 0px 
   img 
     width: 100%
   .right 
     grid-area: right
-    padding: 6rem
+    padding: $mymargin
     padding-left: 0px
     display: flex
     flex-direction: column
     justify-content: center
     gap: 20px
+    &.textonly
+      padding-top: 40px
+      padding-bottom: 40px
+      @media screen and (max-width: $phone)
+        padding: 8px
+        align-items: center
+    @media screen and (max-width: $phone)
+      padding: $mymarginphone
+      margin: 0px
+      gap: 16px
+      
 .banner.nr1
    background: lighten($primary, 80%)
-
-@media only screen and (max-width: 900px) 
-  .banner 
-    grid-template-areas: "left" "right"
-    grid-template-columns: auto
-    .right 
-      padding: 6rem
       
 // Carousel
 .carousel
@@ -211,13 +284,21 @@ footer
     display: grid
     grid-template-areas: "left right"
     grid-template-columns: 60% 1fr
+    position: relative
+    @media screen and (max-width: $phone)
+      grid-template-areas: "left" "right"
+      grid-template-columns: auto auto
     .text
       grid-area: left
-      padding: 6rem
+      padding: $mymargin
       display: flex
       flex-direction: column
       justify-content: center
       gap: 20px
+      @media screen and (max-width: $phone)
+        padding: $mymarginphone
+        gap: 16px
+        width: 100%
   &.single
     .text.single
       padding: 0px
@@ -233,6 +314,8 @@ footer
     position: relative
     margin-top: 48px
     width: fit-content
+    @media screen and (max-width: $phone)
+      display: none
     .item 
       display: flex
       flex-direction: column
@@ -254,7 +337,7 @@ footer
   
   .imagesliderwrapper 
     grid-area: right
-    padding: 6rem
+    padding: $mymargin
     padding-left: 0px
     position: relative
   .imageslider 
@@ -268,27 +351,55 @@ footer
       height: auto
       top: 0px
       left: 0px
-  
-  @media only screen and (max-width: 900px) 
-    .carousel 
-      grid-template-areas: "left" "right"
-      grid-template-columns: 100%
-      .textslider 
-        display: none
-      .imagesliderwrapper 
-        padding: 0
-        margin-bottom: 40px
     
-  // Map
+// Map
+.kontakt
+  height: 100vh
+  position: relative
+  display: flex
+  flex-direction: column
+  alignItems: center
+  @media screen and (max-width: $phone)
+    height: auto
+  .content
+    padding: 40px
+    background: white
+    width: fit-content
+    display: flex
+    flex-direction: column
+    alignItems: center
+    gap: 20px
+    margin: 80px
+    position: relative
+    @media screen and (max-width: $phone)
+      padding: $mymarginphone
+      margin: 0px
+  .map
+    position: absolute
+    width: 100%
+    height: 100%
+    z-index: -1
+    @media screen and (max-width: $phone)
+      position: relative
+      z-index: 0
+      width: 100%
+      height: 500px
+
 
 // News
 .news 
   display: flex
   position: relative
   flex-direction: row
-  padding: 0px 6rem
+  padding: 0px $mymargin
   gap: 40px
   margin-bottom: 80px
+  @media screen and (max-width: $phone)
+      padding: 0px $mymarginphone
+  .articles-small
+    gap: 20px
+    display: flex
+    flex-direction: column
   .left 
     width: 65%
     position: relative
@@ -301,18 +412,26 @@ footer
   article.small 
     display: flex
     gap: 16px
+    flex-direction: row
+    align-items: center
     img
       width: 150px
       height: 150px
+      margin-bottom: 0px
+      @media screen and (max-width: $phone)
+        width: 80px
+        height: 80px
   article  
     img
       width: 100%
       height: auto
+      margin-bottom: 24px
     main 
-      margin-top: 24px
       display: flex
       flex-direction: column
       gap: 16px
+      @media screen and (max-width: $phone)
+        gap: 8px
   .dach
     font-family: Roboto
     font-style: normal
@@ -324,6 +443,9 @@ footer
     letter-spacing: 0.1em
     text-transform: uppercase
     color: #258EA6
+    @media screen and (max-width: $phone)
+      font-size: 10px
+      line-height: 100%
   .headline 
     font-family: Roboto
     font-style: normal
@@ -347,6 +469,9 @@ footer
   font-size: 16px
   line-height: 21px
   color: #1D1D1D
+  @media screen and (max-width: $phone)
+      font-size: 14px
+      line-height: 120%
 
 .news .more 
   font-family: Roboto
@@ -357,6 +482,8 @@ footer
   text-decoration-line: underline
   text-transform: uppercase
   color: #1D1D1D
+  @media screen and (max-width: $phone)
+    display: none
 
 @media only screen and (max-width: 900px) 
   .news 
