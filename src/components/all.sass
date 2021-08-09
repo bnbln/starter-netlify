@@ -7,7 +7,8 @@ $mymargin: 6rem
 // Breakpoints
 $phone: 700px
 $mymarginphone: 1rem
-$tablet: 1024px
+$tablet: 1100px
+$mymargintablet: 3rem
 
 
 
@@ -34,6 +35,8 @@ h1
   font-weight: bold
   font-size: 47px
   line-height: 149%
+  @media screen and (max-width: $tablet)
+    font-size: 32px
   @media screen and (max-width: $phone)
     font-size: 20px
 
@@ -43,6 +46,8 @@ h2
   font-weight: bold
   font-size: 39px
   line-height: 149%
+  @media screen and (max-width: $tablet)
+    font-size: 24px
   @media screen and (max-width: $phone)
     font-size: 18px
 
@@ -53,6 +58,8 @@ h2
   font-size: 20px
   line-height: 145%
   letter-spacing: -0.01em
+  @media screen and (max-width: $tablet)
+    font-size: 18px
   @media screen and (max-width: $phone)
     font-size: 16px
 
@@ -69,6 +76,8 @@ li
   font-size: 28px
   line-height: 33px
   letter-spacing: -0.01em
+  @media screen and (max-width: $tablet)
+    font-size: 24px
   @media screen and (max-width: $phone)
     font-size: 20px
   
@@ -78,28 +87,40 @@ li::before
   font-size: 40px
   vertical-align: middle
   line-height: 33px
+  @media screen and (max-width: $tablet)
+    font-size: 34px
   @media screen and (max-width: $phone)
     font-size: 30px
 
 // Margins
 .left
   margin-left: $mymargin
+  @media screen and (max-width: $tablet)
+    margin-left: $mymargintablet
   @media screen and (max-width: $phone)
     margin-left: $mymarginphone
 .top
   margin-top: $mymargin
+  @media screen and (max-width: $tablet)
+    margin-top: $mymargintablet
   @media screen and (max-width: $phone)
     margin-top: $mymarginphone
 .right
   margin-right: $mymargin
+  @media screen and (max-width: $tablet)
+    margin-right: $mymargintablet
   @media screen and (max-width: $phone)
     margin-right: $mymarginphone
 .bottom
   margin-bottom: $mymargin
+  @media screen and (max-width: $tablet)
+    margin-bottom: $mymargintablet
   @media screen and (max-width: $phone)
     margin-bottom: $mymarginphone          
 .mymargins
   padding: $mymargin
+  @media screen and (max-width: $tablet)
+    padding: $mymargintablet
   @media screen and (max-width: $phone)
     padding: $mymarginphone
 
@@ -124,6 +145,9 @@ li::before
       display: flex
       flex-direction: column
       justify-content: center
+      @media screen and (max-width: $tablet)
+        padding-left: $mymargintablet 
+        padding-right: $mymargintablet
       @media screen and (max-width: $phone)
         padding-left: $mymarginphone 
         padding-right: $mymarginphone
@@ -139,7 +163,7 @@ li::before
       background-size: cover
       background-position: center
       @media screen and (max-width: $phone)
-        height: 300px
+        height: 55vh
 
 // Hero
 .hero
@@ -178,14 +202,24 @@ header
   flex-direction: row
   justify-content: space-between
   align-items: center
-  padding: 0px
-  margin: 0px $mymargin
+  padding: 0px $mymargin
   gap: 24px
+  z-index: 200
+  @media screen and (max-width: $tablet)
+    padding: 0px $mymargintablet
   @media screen and (max-width: $phone)
-    margin: 0px $mymarginphone
+    padding: 0px $mymarginphone
+    height: 60px
+    background: $primary
   a 
     text-decoration: none
     color: $primary
+    @media screen and (max-width: $phone)
+      color: white
+  .hamburger
+    display: none
+    @media screen and (max-width: $phone)
+      display: inherit
   nav 
     display: flex
     flex-direction: row
@@ -208,6 +242,35 @@ header
       text-decoration: none
       & .active, &:hover, &[aria-current="page"], &[aria-current]:not([aria-current="false"])
         opacity: 1
+.mobilemenu
+  display: none
+  position: fixed
+  left: 0px
+  right: 0px
+  bottom: 0px
+  top: 0px
+  width: 100%
+  height: 100vh
+  z-index: 100
+  background: $primary
+  color: white
+  padding-top: 60px
+  main
+    display: flex
+    flex-direction: column
+    padding: $mymarginphone
+    text-align: center
+    justify-content: space-around
+    height: 80vh
+    a
+      font-weight: 300
+      font-size: 20px
+      line-height: 23px
+      text-align: center
+      letter-spacing: -0.01em
+  @media screen and (max-width: $phone)
+    &.visible
+      display: inherit
 
 // Footer
 footer 
@@ -217,6 +280,8 @@ footer
   padding: $mymargin
   background-color: $primary
   color: white
+  @media screen and (max-width: $tablet)
+    padding: $mymargintablet
   @media screen and (max-width: $phone)
     padding: $mymarginphone
   main 
@@ -251,6 +316,9 @@ footer
         text-align: right
         @media screen and (max-width: $phone)
           text-align: center
+    @media screen and (max-width: $tablet)
+      padding: $mymargintablet
+      padding-left: 0px
     @media screen and (max-width: $phone)
       padding: $mymarginphone  
       margin: 0px 
@@ -270,6 +338,9 @@ footer
       @media screen and (max-width: $phone)
         padding: 8px
         align-items: center
+    @media screen and (max-width: $tablet)
+      padding: $mymargintablet    
+      padding-left: 0px
     @media screen and (max-width: $phone)
       padding: $mymarginphone
       margin: 0px
@@ -295,6 +366,9 @@ footer
       flex-direction: column
       justify-content: center
       gap: 20px
+      position: relative
+      @media screen and (max-width: $tablet)
+        padding: $mymargintablet
       @media screen and (max-width: $phone)
         padding: $mymarginphone
         gap: 16px
@@ -309,37 +383,40 @@ footer
     flex-direction: row
     justify-content: flex-start
     align-items: center
-    padding: 40px 20px
-    border-top: 1px solid var(--primary)
+    // border-top: 1px solid $primary
     position: relative
     margin-top: 48px
-    width: fit-content
-    @media screen and (max-width: $phone)
-      display: none
-    .item 
-      display: flex
-      flex-direction: column
-      justify-content: space-between
-      align-items: center
-      opacity: 0.6
-      width: 200px
-      height: 125px
-      position: relative
-      cursor: pointer
-      &:hover, &.active 
-        opacity: 1
-      &.active::before 
-        content: ""
-        position: absolute
-        top: -44.5px
-        width: 100%
-        border: 4px solid $secondary
+    width: 100%
+    a
+      flex: 1 1 0px
+      max-width: 200px
+      .item 
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+        opacity: 0.6
+        height: 125px
+        position: relative
+        cursor: pointer
+        &:hover, &.active 
+          opacity: 1
+        &.active::before 
+          content: ""
+          position: absolute
+          top: -44.5px
+          width: 100%
+          border: 4px solid $secondary
   
   .imagesliderwrapper 
     grid-area: right
     padding: $mymargin
     padding-left: 0px
     position: relative
+    @media screen and (max-width: $tablet)
+      padding: $mymargintablet
+    @media screen and (max-width: $phone)
+      padding: $mymarginphone
   .imageslider 
     position: relative
     width: 100%
@@ -371,6 +448,8 @@ footer
     gap: 20px
     margin: 80px
     position: relative
+    @media screen and (max-width: $tablet)
+      padding: $mymarginphone
     @media screen and (max-width: $phone)
       padding: $mymarginphone
       margin: 0px
@@ -394,6 +473,8 @@ footer
   padding: 0px $mymargin
   gap: 40px
   margin-bottom: 80px
+  @media screen and (max-width: $tablet)
+    padding: 0px $mymargintablet
   @media screen and (max-width: $phone)
       padding: 0px $mymarginphone
   .articles-small
@@ -530,5 +611,7 @@ a.button
   justify-content: space-between
   gap: 24px
   align-items: center
+  @media screen and (max-width: $tablet)
+    margin: $mymargintablet
   @media screen and (max-width: $phone)
     margin: $mymarginphone
