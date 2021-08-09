@@ -1,15 +1,17 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import CookieConsent, { getCookieConsentValue} from "react-cookie-consent";
 import Footer from '../components/Footer'
 import './all.sass'
 import useSiteMetadata from './SiteMetadata'
-import { withPrefix } from 'gatsby'
+import { withPrefix, Link } from 'gatsby'
 
 import metadatafromyml from "../../content/settings/global.yml"
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
   console.log(metadatafromyml)
+  console.log("COOKIE: ", getCookieConsentValue("gdpr"));
   return (
     <div>
       <Helmet>
@@ -52,7 +54,21 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
 
       <div>{children}</div>
-
+      <CookieConsent
+        location="bottom"
+        buttonText="Akzeptieren"
+        cookieName="gdpr"
+        expires={150}
+        disableStyles={true}
+      >
+        <b>Diese Seite verwendet Cookies </b>
+        <br />
+        <span style={{fontSize: 10}}>Wir verwenden Cookies, um Inhalte und Anzeigen zu personalisieren, Funktionen für soziale Medien anbieten zu können und die Zugriffe auf unsere Website zu analysieren.
+        <br />
+        <Link to={"/datenschutz"}>Weitere Informationen</Link>
+        </span>
+        
+      </CookieConsent>
       <Footer />
     </div>
   )

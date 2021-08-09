@@ -2,9 +2,6 @@ import React from 'react'
 import Logo from './Logo'
 import { Link } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
-
-import Content, { HTMLContent } from './Content'
-
 import meta from "../../content/settings/global.yml"
 
 const Footer = class extends React.Component {

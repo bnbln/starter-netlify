@@ -8,7 +8,6 @@ import {Transition, config, animated} from "react-spring"
 
 
 function BlogIndexPage(props) {
-  var count = props.count
   var data = props.data
   const [active, setActive] = useState(0)
   setTimeout(()=> setActive(active < (data.posts.edges.length-1) ? active+1 : 0), 4000)

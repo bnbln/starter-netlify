@@ -1,15 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Banner from '../components/Banner'
-import Hero from '../components/Hero'
-import Carousel from '../components/Carousel'
-import Map from '../components/Map'
-import BlogRoll from '../components/BlogRoll'
-
-import Button from '../components/Button'
 
 
 export const ImpressumPageTemplate = ({
