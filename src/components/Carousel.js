@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {Transition, config, animated} from "react-spring"
 import { Link, graphql, StaticQuery } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
-
 
 function Carousel(props) {
     const [active, setActive] = useState(0)

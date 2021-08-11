@@ -4,23 +4,11 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-import Hero from '../components/Hero'
-
-
 export const AboutPageTemplate = ({ title, lead, cta, image, content, contentComponent }) => {
   const PageContent = contentComponent || Content
 
   return (
     <>
-      <Hero hero={
-        {
-          title: title, 
-          lead: lead,
-          cta: cta,
-          image: image
-        }
-      }
-      variant="dark" /> 
       <section className="mymargins">
         <PageContent className="content" content={content} />
       </section>
@@ -38,7 +26,7 @@ const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
+    <Layout data={post.frontmatter}>
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}

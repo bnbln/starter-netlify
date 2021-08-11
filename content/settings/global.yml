@@ -1,4 +1,4 @@
-site: Rechtsklarheit.de
+site: Rxxxxxkxxxxxxx.de
 description: Kanzlei am Wittenbergplatz
 seo: abc abc
 image: /img/headerimage.jpg
@@ -11,8 +11,6 @@ menu:
     to: /about
   - name: Aktuelles
     to: /blog
-  - name: Kontakt
-    to: /contact
 footermenu:
   - name: Kontakt
     to: /contact

@@ -14,9 +14,8 @@ class BlogIndexPage extends React.Component {
     console.log(active);
     setTimeout(()=> active = (active < (data.posts.edges.length-1) ? active+1 : 0), 4000)
     return (
-      <Layout>
-        <h1>recht page</h1>
-        <Hero hero={data.page.frontmatter.hero} variant="light">
+      <Layout hero={data.page.frontmatter.hero} variant="light">
+        <Hero >
           <Carousel />
         </Hero>
         <div>

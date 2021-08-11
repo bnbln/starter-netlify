@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import Layout from '../../components/Layout'
-import Hero from '../../components/Hero'
 import Banner from "../../components/Banner"
 import {Transition, config, animated} from "react-spring"
 
@@ -12,51 +11,10 @@ function BlogIndexPage(props) {
   const [active, setActive] = useState(0)
   setTimeout(()=> setActive(active < (data.posts.edges.length-1) ? active+1 : 0), 4000)
   return(
-    <Layout>
-        <Hero hero={data.page.frontmatter.hero} variant="light" imageslider={
-          <div className="imageslider">
-              <Transition
-                  items={active}
-                  from={{ opacity: 0, translateX: 400 }}
-                  enter={{ opacity: 1, translateX: 0 }}
-                  leave={{ opacity: 0, translateX: -400 }}
-                  reverse={active}
-                  delay={250}
-                  config={config.default}
-              >
-                  {({ opacity, translateX }, item) =>
-                  item === 0 ? (
-                      <animated.img src={
-                          data.posts.edges[0].node.frontmatter.picture.childImageSharp ? data.posts.edges[0].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[0].node.frontmatter.picture
-                      } className={active === 0 ? "item active" : "item"} alt=""
-                          style={{
-                              opacity: opacity,
-                              transform: translateX.to(y => `translateX(${y}px)`),
-                          }}
-                      />
-                  ) : item === 1 ? (
-                      <animated.img src={
-                          data.posts.edges[1].node.frontmatter.picture.childImageSharp ? data.posts.edges[1].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[1].node.frontmatter.picture
-                      } className={active === 1 ? "item active" : "item"} alt=""
-                      style={{
-                          opacity: opacity,
-                          transform: translateX.to(y => `translateX(${y}px)`),
-                      }}
-                      />
-                  ) : (
-                      <animated.img src={
-                          data.posts.edges[2].node.frontmatter.picture.childImageSharp ? data.posts.edges[2].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[2].node.frontmatter.picture
-                      } className={active === 2 ? "item active" : "item"} alt="" 
-                      style={{
-                          opacity: opacity,
-                          transform: translateX.to(y => `translateX(${y}px)`),
-                      }}
-                      />
-                  )
-                  }
-              </Transition>
-          </div>
-        }>
+    <Layout 
+      data={{ 
+        ...data.page.frontmatter.hero,
+        children: (
           <div className="carousel single" style={{
             padding: "0px",
             margin: "0px"
@@ -86,16 +44,64 @@ function BlogIndexPage(props) {
                 </div>
             </div>
           </div>
-        </Hero>
+
+        )
+      }} variant="light" 
+    imageslider={
+      <div className="imageslider">
+          <Transition
+              items={active}
+              from={{ opacity: 0, translateX: 400 }}
+              enter={{ opacity: 1, translateX: 0 }}
+              leave={{ opacity: 0, translateX: -400 }}
+              reverse={active}
+              delay={250}
+              config={config.default}
+          >
+              {({ opacity, translateX }, item) =>
+              item === 0 ? (
+                  <animated.img src={
+                      data.posts.edges[0].node.frontmatter.picture.childImageSharp ? data.posts.edges[0].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[0].node.frontmatter.picture
+                  } className={active === 0 ? "item active" : "item"} alt=""
+                      style={{
+                          opacity: opacity,
+                          transform: translateX.to(y => `translateX(${y}px)`),
+                      }}
+                  />
+              ) : item === 1 ? (
+                  <animated.img src={
+                      data.posts.edges[1].node.frontmatter.picture.childImageSharp ? data.posts.edges[1].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[1].node.frontmatter.picture
+                  } className={active === 1 ? "item active" : "item"} alt=""
+                  style={{
+                      opacity: opacity,
+                      transform: translateX.to(y => `translateX(${y}px)`),
+                  }}
+                  />
+              ) : (
+                  <animated.img src={
+                      data.posts.edges[2].node.frontmatter.picture.childImageSharp ? data.posts.edges[2].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[2].node.frontmatter.picture
+                  } className={active === 2 ? "item active" : "item"} alt="" 
+                  style={{
+                      opacity: opacity,
+                      transform: translateX.to(y => `translateX(${y}px)`),
+                  }}
+                  />
+              )
+              }
+          </Transition>
+      </div>
+    }>
         <div>
-          {data.page.frontmatter.banner.map((item, i)=> (
-            <Banner key={"banner"+i}>
-              <div className="left white">
-              <h6>{item.title}</h6>
-              <p>{item.text}</p>
+          
+            <Banner variant="light">
+            {data.page.frontmatter.banner.map((item, i)=> (
+              <div className="half" key={"banner"+i}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
               </div>
+            ))}
             </Banner>
-          ))}
+          
         </div>
       </Layout>
   )

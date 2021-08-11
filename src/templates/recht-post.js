@@ -18,17 +18,9 @@ export const BlogPostTemplate = ({
   title,
   helmet,
 }) => {
-  console.log("data", data);
   return (
     <>
       {helmet || ''}
-      <Hero hero={{
-        icon: data.markdownRemark.frontmatter.image,
-        title: title,
-        lead: data.markdownRemark.frontmatter.lead,
-        image: data.markdownRemark.frontmatter.picture,
-        list: data.markdownRemark.frontmatter.article
-      }} />
       {data.markdownRemark.frontmatter.banner.map((item,i)=> (
         <Banner key={"banner"+i} counter={i}>
           <div className="left white">
@@ -39,7 +31,7 @@ export const BlogPostTemplate = ({
       ))}
       <BlogRoll />
       {data.markdownRemark.frontmatter.article.map((item,i)=> (
-        <section className="left right top">
+        <section className="left right top" key={"section"+i}>
           <h4 id={i}>{item.title}</h4>
           <ReactMarkdown>{item.body}</ReactMarkdown>
         </section>
@@ -61,7 +53,13 @@ const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data
   console.log(data);
   return (
-    <Layout>
+    <Layout data={{
+      icon: post.frontmatter.image,
+      title: post.frontmatter.title,
+      lead: post.frontmatter.lead,
+      image: post.frontmatter.picture,
+      list: post.frontmatter.article
+    }} variant="light">
       <BlogPostTemplate
         data={data}
         content={post.html}

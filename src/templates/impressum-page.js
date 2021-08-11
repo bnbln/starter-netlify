@@ -2,46 +2,47 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import Content, { HTMLContent } from '../components/Content'
 
 
 export const ImpressumPageTemplate = ({
-  hero,
-  banner01,
-  banner02
-}) => (
+  title,
+  lead,
+  icon,
+  image,
+  content,
+  contentComponent
+}) => {
+const PageContent = contentComponent || Content
+return (
   <>
-   <h1>Impressum</h1>
+    <section className="mymargins">
+      <PageContent className="content" content={content} />
+    </section>
   </>
 )
+}
 
 ImpressumPageTemplate.propTypes = {
-  hero: PropTypes.shape({
-    image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    dachzeile: PropTypes.string,
-    title: PropTypes.string,
-    lead: PropTypes.string,
-    cta: PropTypes.string,
-  }),
-  banner01: PropTypes.shape({
-    bannerimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    heading: PropTypes.string,
-    subheading: PropTypes.string,
-    bannercta: PropTypes.string,
-  }),
-  banner02: PropTypes.shape({
-    heading: PropTypes.string,
-    cta: PropTypes.string,
-  }),
+  title: PropTypes.string,
+  lead: PropTypes.string,
+  icon: PropTypes.object,
+  image: PropTypes.object,
+  content: PropTypes.node.isRequired,
+  contentComponent: PropTypes.func,
 }
 
 const ImpressumPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   return (
-    <Layout>
+    <Layout data={data.markdownRemark.frontmatter}>
       <ImpressumPageTemplate
-        hero={frontmatter.hero}
-        banner01={frontmatter.banner01}
-        banner02={frontmatter.banner02}
+        title={frontmatter.title}
+        lead={frontmatter.lead}
+        icon={frontmatter.icon}
+        image={frontmatter.image}
+        content={data.markdownRemark.html}
+        contentComponent={HTMLContent}
       />
     </Layout>
   )
@@ -61,8 +62,26 @@ export const pageQuery = graphql`
   query ImpressumPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "impressum-page" } }) {
       frontmatter {
-        title   
+        title
+        lead
+        icon {
+          publicURL
+          extension
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
+      html
     }
   }
 `

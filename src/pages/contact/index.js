@@ -1,8 +1,7 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
-import Hero from '../../components/Hero'
-
+import Map from "../../components/Map"
 
 function encode(data) {
   return Object.keys(data)
@@ -37,10 +36,9 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <Layout>
-        <Hero hero={{title: "Kontakt", lead: "Nehmen Sie kontakt mit uns auf und vereinbaren Sie einen Beratungstermin"}} variant="dark" />
+      <Layout data={{title: "Kontakt", lead: "Nehmen Sie kontakt mit uns auf und vereinbaren Sie einen Beratungstermin"}}>
         <section className="section">
-          <div className="container">
+          <div className="mymargins">
             <div className="content">
               <form
                 name="contact"
@@ -165,7 +163,7 @@ export default class Index extends React.Component {
                 </div>
                 <div className="field">
                   <label className="label" htmlFor={'message'}>
-                    Message
+                    Nachricht
                   </label>
                   <div className="control">
                     <textarea
@@ -186,6 +184,7 @@ export default class Index extends React.Component {
             </div>
           </div>
         </section>
+        <Map />
       </Layout>
     )
   }

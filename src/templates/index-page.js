@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Banner from '../components/Banner'
-import Hero from '../components/Hero'
 import Carousel from '../components/Carousel'
 import Map from '../components/Map'
 import BlogRoll from '../components/BlogRoll'
@@ -18,7 +17,6 @@ export const IndexPageTemplate = ({
   banner02
 }) => (
   <>
-    <Hero hero={hero} variant="light" />
     <Banner>
       <div className="left">
         {banner01.bannerimage ?
@@ -71,7 +69,7 @@ IndexPageTemplate.propTypes = {
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   return (
-    <Layout>
+    <Layout data={frontmatter.hero} variant="light">
       <IndexPageTemplate
         hero={frontmatter.hero}
         banner01={frontmatter.banner01}

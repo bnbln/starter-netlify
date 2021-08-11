@@ -29,6 +29,10 @@ h1, h2, h3, h4, h5, h6, p, b, i
   margin: 0px
   padding: 0px
 
+p
+  line-height: 140%
+  margin-bottom: 16px
+
 h1 
   font-family: Roboto
   font-style: normal
@@ -149,8 +153,7 @@ li::before
         padding-left: $mymargintablet 
         padding-right: $mymargintablet
       @media screen and (max-width: $phone)
-        padding-left: $mymarginphone 
-        padding-right: $mymarginphone
+        padding: $mymarginphone 
       * 
         margin: 20px 0px
         @media screen and (max-width: $phone)
@@ -183,14 +186,26 @@ li::before
     img
       height: 100%
       position: absolute
+  .list
+    display: inline-flex
+    flex-wrap: wrap
+    gap: 10px
+    .button
+      margin: 0px
   // Logo
 
-  .logo h1 
+.logo 
+  h1 
     font-family: Roboto
     font-style: normal
     font-weight: bold
     font-size: 30px
     line-height: 35px
+    letter-spacing: -0.01em
+  h2
+    font-weight: 300
+    font-size: 28px
+    line-height: 33px
     letter-spacing: -0.01em
 
 // Header
@@ -290,8 +305,26 @@ footer
     flex-direction: row
     justify-content: space-between
     align-items: flex-start
+    gap: 16px
     @media screen and (max-width: $phone)
       flex-direction: column
+    .footernav
+      display: flex
+      flex-direction: column
+      nav 
+        a
+          display: flex
+          margin-bottom: 8px
+  .copyright
+    font-weight: 300
+    font-size: 14px
+    line-height: 20px
+    text-align: center
+    letter-spacing: 0.1em
+    text-transform: uppercase
+    width: 100%
+    @media screen and (max-width: $phone)
+      text-align: left
 
 
 // Banner
@@ -300,9 +333,16 @@ footer
   display: grid
   grid-template-areas: "left right"
   grid-template-columns: 60% 1fr
+  &.light
+    background: lighten($primary, 75)
+    grid-template-columns: 50% 50%
+    *
+      color: $primary
   @media screen and (max-width: $phone)
     grid-template-areas: "left" "right"
     grid-template-columns: 100% 100%
+  .half
+    padding: $mymargin
   .left 
     grid-area: left
     padding: $mymargin
@@ -320,7 +360,7 @@ footer
       padding: $mymargintablet
       padding-left: 0px
     @media screen and (max-width: $phone)
-      padding: $mymarginphone  
+      padding: 0px  
       margin: 0px 
   img 
     width: 100%
@@ -343,6 +383,7 @@ footer
       padding-left: 0px
     @media screen and (max-width: $phone)
       padding: $mymarginphone
+      padding-bottom: calc(2 * #{$mymarginphone})
       margin: 0px
       gap: 16px
       
@@ -370,9 +411,8 @@ footer
       @media screen and (max-width: $tablet)
         padding: $mymargintablet
       @media screen and (max-width: $phone)
-        padding: $mymarginphone
+        padding: calc(2 * #{$mymarginphone}) $mymarginphone
         gap: 16px
-        width: 100%
   &.single
     .text.single
       padding: 0px
@@ -524,6 +564,7 @@ footer
     letter-spacing: 0.1em
     text-transform: uppercase
     color: #258EA6
+    margin-bottom: 0px
     @media screen and (max-width: $phone)
       font-size: 10px
       line-height: 100%
@@ -534,12 +575,14 @@ footer
     font-size: 24px
     line-height: 36px
     color: #1D1D1D
+    margin-bottom: 0p
   .lead 
     font-family: Roboto
     font-style: normal
     font-weight: normal
     font-size: 14px
     line-height: 149%
+    margin-bottom: 0p
     color: rgba(23, 35, 64, 0.6)
 
 

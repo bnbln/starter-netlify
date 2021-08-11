@@ -12,7 +12,6 @@ import close from "../assets/x.svg"
 
 function Hero(props) {
     const [toggle, setToggle] = useState(false)
-    console.log(toggle);
     var hero = props.hero
     return(
     <div className={"hero " + props.variant}>
@@ -44,9 +43,9 @@ function Hero(props) {
                     {hero.lead ? <p className="lead">{hero.lead}</p> : null}
                     {hero.cta ? <Button variant="secondary" to="/about">{hero.cta}</Button> : null} 
                     {hero.list ? 
-                        <div>
+                        <div className="list">
                             {hero.list.map((item, i) => (
-                                <Button to={"#"+i}>{item.title}</Button>
+                                <Button to={"#"+i} key={"sectionbutton"+i}>{item.title}</Button>
                             ))}
                         </div>
                     : null}

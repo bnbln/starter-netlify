@@ -1,23 +1,22 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import CookieConsent, { getCookieConsentValue} from "react-cookie-consent";
+import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import './all.sass'
-import useSiteMetadata from './SiteMetadata'
 import { withPrefix, Link } from 'gatsby'
 
 import metadatafromyml from "../../content/settings/global.yml"
 
-const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata()
-  console.log(metadatafromyml)
+const TemplateWrapper = (props) => {
   console.log("COOKIE: ", getCookieConsentValue("gdpr"));
+  console.log(props);
   return (
-    <div>
+    <div className="layout">
       <Helmet>
         <html lang="de" />
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{metadatafromyml.site}</title>
+        <meta name="description" content={metadatafromyml.description} />
 
         <link
           rel="apple-touch-icon"
@@ -45,15 +44,23 @@ const TemplateWrapper = ({ children }) => {
         <meta name="theme-color" content="#fff" />
 
         <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={metadatafromyml.site} />
         <meta property="og:url" content="/" />
         <meta
           property="og:image"
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-
-      <div>{children}</div>
+      {props.data ? 
+          <Hero 
+            hero={props.data} 
+            variant={props.variant ? props.variant : "dark"}
+            imageslider={props.imageslider ? props.imageslider : null}
+            children={props.data.children}
+          />
+      :null }
+      <div>{props.children}</div>
+      
       <CookieConsent
         location="bottom"
         buttonText="Akzeptieren"

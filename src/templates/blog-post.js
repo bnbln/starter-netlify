@@ -22,10 +22,6 @@ export const BlogPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -56,9 +52,13 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data
-
+  console.log(data);
   return (
-    <Layout>
+    <Layout data={{
+      title: post.frontmatter.title,
+      lead: post.frontmatter.description,
+      image: post.frontmatter.featuredimage
+    }}>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
@@ -97,6 +97,13 @@ export const pageQuery = graphql`
         title
         description
         tags
+        featuredimage {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
