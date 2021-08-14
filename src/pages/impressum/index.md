@@ -7,8 +7,6 @@ image: /img/headerimage.jpg
 ---
 ## Impressum, Haftungshinweise und Datenschutzerklärung
 
-
-
 ### Inhaltliche Betreuung
 
 **tbd**
@@ -35,5 +33,4 @@ Kommunikation via E-Mail kann Sicherheitslücken aufweisen. Beispielsweise könn
 
 ### Datenschutzerklärung
 
-
-Die aktuelle Datenschutzerklärung für die Webseite rechtsklarheit.de finden Sie hier
+Die aktuelle Datenschutzerklärung für die Webseite **[tbd](/datenschutz)** finden Sie hier
