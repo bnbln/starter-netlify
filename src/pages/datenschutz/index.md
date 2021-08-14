@@ -3,7 +3,7 @@ templateKey: datenschutz-page
 title: Datenschutzerklärung
 lead: " "
 icon: /img/lock.svg
-image: /img/headerimage.jpg
+image: /img/datenschutz.png
 ---
 ## Datenschutzerklärung gemäß DSGVO
 
