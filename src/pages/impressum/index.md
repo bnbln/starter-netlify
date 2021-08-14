@@ -1,7 +1,7 @@
 ---
 templateKey: impressum-page
 title: Impressum
-lead: Nehmen Sie kontakt mit uns auf und vereinbaren Sie einen Beratungstermin
+lead: " "
 icon: /img/navigation.svg
 image: /img/headerimage.jpg
 ---
