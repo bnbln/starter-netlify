@@ -52,7 +52,6 @@ export const aboutPageQuery = graphql`
       frontmatter {
         title
         lead
-        cta
         image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {

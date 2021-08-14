@@ -41,7 +41,7 @@ function Hero(props) {
 
                     {hero.title ? <h1>{hero.title}</h1> : null}
                     {hero.lead ? <p className="lead">{hero.lead}</p> : null}
-                    {hero.cta ? <Button variant="secondary" to="/about">{hero.cta}</Button> : null} 
+                    {hero.cta ? <Button variant="secondary" to={hero.link}>{hero.cta}</Button> : null} 
                     {hero.list ? 
                         <div className="list">
                             {hero.list.map((item, i) => (

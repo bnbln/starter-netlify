@@ -98,6 +98,7 @@ export const pageQuery = graphql`
           title
           lead
           cta
+          link
           image {
             childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
