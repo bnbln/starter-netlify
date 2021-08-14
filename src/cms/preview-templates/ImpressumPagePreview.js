@@ -6,7 +6,6 @@ import { Link } from 'gatsby'
 
 const ImpressumPagePreview = ({ entry, widgetFor, getAsset }) => {
   const data = entry.getIn(['data']).toJS()
-
   if (data) {
     return (
       <Layout data={data || {image: getAsset(data.image)}} isPreview={true}>

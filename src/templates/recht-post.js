@@ -9,28 +9,25 @@ import Hero from "../components/Hero"
 import BlogRoll from '../components/BlogRoll'
 import Banner from '../components/Banner'
 
-export const BlogPostTemplate = ({
+export const RechtPostTemplate = ({
   data,
-  content,
-  contentComponent,
-  description,
-  tags,
-  title,
+  banner,
+  article,
   helmet,
 }) => {
   return (
     <>
       {helmet || ''}
-      {data.markdownRemark.frontmatter.banner.map((item,i)=> (
+      {banner ? banner.map((item,i)=> (
         <Banner key={"banner"+i} counter={i}>
           <div className="left white">
             <h2>{item.title}</h2>
             <p>{item.text}</p>
           </div>
         </Banner>
-      ))}
+      )) : null}
       <BlogRoll />
-      {data.markdownRemark.frontmatter.article.map((item,i)=> (
+      {article.map((item,i)=> (
         <section className="left right top" key={"section"+i}>
           <h4 id={i}>{item.title}</h4>
           <ReactMarkdown>{item.body}</ReactMarkdown>
@@ -40,8 +37,10 @@ export const BlogPostTemplate = ({
   )
 }
 
-BlogPostTemplate.propTypes = {
+RechtPostTemplate.propTypes = {
   data: PropTypes.object,
+  banner: PropTypes.object,
+  article: PropTypes.object,
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -49,7 +48,7 @@ BlogPostTemplate.propTypes = {
   helmet: PropTypes.object,
 }
 
-const BlogPost = ({ data }) => {
+const RechtPost = ({ data }) => {
   const { markdownRemark: post } = data
   console.log(data);
   return (
@@ -60,13 +59,15 @@ const BlogPost = ({ data }) => {
       image: post.frontmatter.picture,
       list: post.frontmatter.article
     }} variant="light">
-      <BlogPostTemplate
+      <RechtPostTemplate
         data={data}
+        banner={data.markdownRemark.frontmatter.banner}
+        article={data.markdownRemark.frontmatter.article}
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
-          <Helmet titleTemplate="%s | Blog">
+          <Helmet titleTemplate="%s | Recht">
             <title>{`${post.frontmatter.title}`}</title>
             <meta
               name="description"
@@ -81,13 +82,13 @@ const BlogPost = ({ data }) => {
   )
 }
 
-BlogPost.propTypes = {
+RechtPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default BlogPost
+export default RechtPost
 
 export const pageQuery = graphql`
   query RechtPostByID($id: String!) {

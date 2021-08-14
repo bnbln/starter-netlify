@@ -4,12 +4,15 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import Layout from '../../components/Layout'
 import Banner from "../../components/Banner"
 import {Transition, config, animated} from "react-spring"
+import 'keen-slider/keen-slider.min.css'
+import { useKeenSlider } from 'keen-slider/react'
 
 
 function RechtPage(props) {
   var data = props.data
   const [active, setActive] = useState(0)
   setTimeout(()=> setActive(active < (data.posts.edges.length-1) ? active+1 : 0), 4000)
+  const [sliderRef, slider] = useKeenSlider()
   return(
     <Layout 
       data={{ 
