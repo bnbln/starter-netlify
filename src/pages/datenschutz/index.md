@@ -1,7 +1,7 @@
 ---
 templateKey: datenschutz-page
 title: Datenschutzerklärung
-lead: Nehmen Sie kontakt mit uns auf und vereinbaren Sie einen Beratungstermin
+lead: " "
 icon: /img/lock.svg
 image: /img/headerimage.jpg
 ---
