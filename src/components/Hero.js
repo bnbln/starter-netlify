@@ -19,16 +19,20 @@ function Hero(props) {
             <div className="grid">
                 <header>
                     <Logo meta={meta} />
-                    <div className="hamburger">
-                        {toggle === false ?
-                            <a role="menu" onClick={()=> setToggle(!toggle)}><img src={menu} /></a>
-                        :
-                            <a role="menu" onClick={()=> setToggle(!toggle)}><img src={close} /></a>
-                        }
-                    </div>
-                    <nav>
-                        {meta.menu.map((item, i)=> <Link className="navbar-item" to={item.to} key={"menu-"+i}>{item.name}</Link>)}
-                    </nav>
+                    {props.isPreview ? null :
+                    <>
+                        <div className="hamburger">
+                            {toggle === false ?
+                                <a role="menu" onClick={()=> setToggle(!toggle)}><img src={menu} /></a>
+                            :
+                                <a role="menu" onClick={()=> setToggle(!toggle)}><img src={close} /></a>
+                            }
+                        </div>
+                        <nav>
+                            {meta.menu.map((item, i)=> <Link className="navbar-item" to={item.to} key={"menu-"+i}>{item.name}</Link>)}
+                        </nav>
+                    </>
+                    }
                 </header>
             <div className="text">
                 <div className="hero primary">

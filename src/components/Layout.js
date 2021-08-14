@@ -57,11 +57,15 @@ const TemplateWrapper = (props) => {
             variant={props.variant ? props.variant : "dark"}
             imageslider={props.imageslider ? props.imageslider : null}
             children={props.data.children}
+            isPreview={props.isPreview}
           />
       :null }
       <div>{props.children}</div>
       
-      <CookieConsent
+        { props.isPreview ?
+          null :
+          <>
+                <CookieConsent
         location="bottom"
         buttonText="Akzeptieren"
         cookieName="gdpr"
@@ -74,9 +78,11 @@ const TemplateWrapper = (props) => {
         <br />
         <Link to={"/datenschutz"}>Weitere Informationen</Link>
         </span>
-        
-      </CookieConsent>
-      <Footer />
+          </CookieConsent>
+          <Footer />
+          </>
+        }
+
     </div>
   )
 }
