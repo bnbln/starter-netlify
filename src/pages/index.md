@@ -12,6 +12,7 @@ banner01:
   heading: Unsere Kanzlei am Wittenbergplatz
   subheading: Lernen Sie uns, unsere Stärken und Kolleg*innen besser kennen
   bannercta: Kontakt aufnehmen
+  link: /contact
 banner02:
   heading: Jetzt Kontakt aufnehmen
   cta: Zum Kontaktformular
