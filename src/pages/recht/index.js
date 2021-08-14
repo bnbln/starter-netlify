@@ -6,7 +6,7 @@ import Banner from "../../components/Banner"
 import {Transition, config, animated} from "react-spring"
 
 
-function BlogIndexPage(props) {
+function RechtPage(props) {
   var data = props.data
   const [active, setActive] = useState(0)
   setTimeout(()=> setActive(active < (data.posts.edges.length-1) ? active+1 : 0), 4000)
@@ -107,7 +107,7 @@ function BlogIndexPage(props) {
   )
 }
 
-BlogIndexPage.propTypes = {
+RechtPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -172,6 +172,6 @@ query={graphql`
     }
   }
 `}
-render={(data, count) => <BlogIndexPage data={data} count={count} />}
+render={(data, count) => <RechtPage data={data} count={count} />}
 />
 )
