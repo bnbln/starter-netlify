@@ -6,6 +6,7 @@ hero:
   lead: Wir bieten hochqualiative Rechtsberatung in unserer Berliner Kanzlei für Sie
   cta: Über mich
   image: /img/headerimage.jpg
+  link: /about
 banner01:
   bannerimage: /img/imageabout.png
   heading: Unsere Kanzlei am Wittenbergplatz
@@ -14,4 +15,5 @@ banner01:
 banner02:
   heading: Jetzt Kontakt aufnehmen
   cta: Zum Kontaktformular
+  link: /contact
 ---
