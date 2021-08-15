@@ -1,15 +1,8 @@
 import React from 'react'
 import Layout from '../../components/Layout'
+import icon from "../../assets/message-circle.svg"
 
 export default () => (
-  <Layout>
-    <section className="section">
-      <div className="container">
-        <div className="content">
-          <h1>Thank you!</h1>
-          <p>This is a custom thank you page for form submissions</p>
-        </div>
-      </div>
-    </section>
+  <Layout data={{title: "Danke", lead: "Ihre Nachricht wurde versendet. Wir werden uns zeitnah mit Ihnen in Verbindung setzen.", icon: icon}}>
   </Layout>
 )

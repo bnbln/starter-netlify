@@ -1,7 +1,9 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
+import { Formik, Field, Form } from 'formik';
 import Layout from '../../components/Layout'
 import Map from "../../components/Map"
+import icon from "../../assets/message-circle.svg"
 
 function encode(data) {
   return Object.keys(data)
@@ -36,8 +38,8 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <Layout data={{title: "Kontakt", lead: "Nehmen Sie kontakt mit uns auf und vereinbaren Sie einen Beratungstermin"}}>
-        <section className="section">
+      <Layout data={{title: "Kontakt", lead: "Nehmen Sie kontakt mit uns auf und vereinbaren Sie einen Beratungstermin", icon: icon}}>
+        <div>
           <div className="mymargins">
             <div className="content">
               <form
@@ -56,96 +58,123 @@ export default class Index extends React.Component {
                     <input name="bot-field" onChange={this.handleChange} />
                   </label>
                 </div>
-                <div className="field">
-                  <label className="label" htmlFor={'vorname'}>
-                    Vorname
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'text'}
-                      name={'vorname'}
-                      onChange={this.handleChange}
-                      id={'vorname'}
-                      required={true}
-                    />
+                <div class="columns">
+                  <div class="column">
+                    <div className="field">
+                    <label className="label" htmlFor={'vorname'}>
+                      Vorname
+                    </label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        type={'text'}
+                        name={'vorname'}
+                        onChange={this.handleChange}
+                        id={'vorname'}
+                        required={true}
+                        placeholder="Max"
+                      />
+                    </div>
+                  </div>
+                  </div>
+                  <div class="column">
+                    <div className="field">
+                    <label className="label" htmlFor={'nachname'}>
+                      Nachname
+                    </label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        type={'text'}
+                        name={'nachname'}
+                        onChange={this.handleChange}
+                        id={'nachname'}
+                        required={true}
+                        placeholder="Mustermann"
+                      />
+                    </div>
+                  </div>
                   </div>
                 </div>
-                <div className="field">
-                  <label className="label" htmlFor={'nachname'}>
-                    Nachname
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'text'}
-                      name={'nachname'}
-                      onChange={this.handleChange}
-                      id={'nachname'}
-                      required={true}
-                    />
+    
+                <div class="columns">
+                  <div class="column">
+                    <div className="field">
+                    <label className="label" htmlFor={'adresse'}>
+                      Straße und Hausnummer
+                    </label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        type={'text'}
+                        name={'adresse'}
+                        onChange={this.handleChange}
+                        id={'adresse'}
+                        required={true}
+                        placeholder="Musterstraße 10"
+                      />
+                    </div>
+                  </div>
+                  </div>
+                  <div class="column">
+                    <div className="field">
+                    <label className="label" htmlFor={'stadt'}>
+                      PLZ und Stadt
+                    </label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        type={'text'}
+                        name={'stadt'}
+                        onChange={this.handleChange}
+                        id={'stadt'}
+                        required={true}
+                        placeholder="12161 Berlin"
+                      />
+                    </div>
+                  </div>
                   </div>
                 </div>
-                <div className="field">
-                  <label className="label" htmlFor={'adresse'}>
-                    Straße und Hausnummer
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'text'}
-                      name={'adresse'}
-                      onChange={this.handleChange}
-                      id={'adresse'}
-                      required={true}
-                    />
+
+                <div class="columns">
+                  <div class="column">
+                    <div className="field">
+                    <label className="label" htmlFor={'email'}>
+                      Mailadresse
+                    </label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        type={'email'}
+                        name={'email'}
+                        onChange={this.handleChange}
+                        id={'email'}
+                        required={true}
+                        placeholder="max.mustermann@mail.de"
+                      />
+                    </div>
+                  </div>
+                  </div>
+                  <div class="column">
+                    <div className="field">
+                    <label className="label" htmlFor={'telefon'}>
+                      Telefonnummer
+                    </label>
+                    <div className="control">
+                      <input
+                        className="input"
+                        type={'text'}
+                        name={'telefon'}
+                        onChange={this.handleChange}
+                        id={'telefon'}
+                        required={true}
+                        placeholder="030 1234567"
+                      />
+                    </div>
+                  </div>
                   </div>
                 </div>
-                <div className="field">
-                  <label className="label" htmlFor={'stadt'}>
-                    PLZ und Stadt
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'text'}
-                      name={'stadt'}
-                      onChange={this.handleChange}
-                      id={'stadt'}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'email'}>
-                    Mailadresse
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'email'}
-                      name={'email'}
-                      onChange={this.handleChange}
-                      id={'email'}
-                      required={true}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label" htmlFor={'telefon'}>
-                    Telefonnummer
-                  </label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type={'text'}
-                      name={'telefon'}
-                      onChange={this.handleChange}
-                      id={'telefon'}
-                      required={true}
-                    />
-                  </div>
-                </div>
+
                 <div className="field">
                   <label className="label" htmlFor={'betreff'}>
                     Betreff
@@ -158,6 +187,7 @@ export default class Index extends React.Component {
                       onChange={this.handleChange}
                       id={'betreff'}
                       required={true}
+                      placeholder="Mein Anliegen"
                     />
                   </div>
                 </div>
@@ -172,6 +202,7 @@ export default class Index extends React.Component {
                       onChange={this.handleChange}
                       id={'message'}
                       required={true}
+                      placeholder="Meine Nachricht"
                     />
                   </div>
                 </div>
@@ -183,7 +214,7 @@ export default class Index extends React.Component {
               </form>
             </div>
           </div>
-        </section>
+        </div>
         <Map />
       </Layout>
     )

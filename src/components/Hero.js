@@ -39,8 +39,8 @@ function Hero(props) {
                     {hero.dachzeile ? <ul><li>{hero.dachzeile}</li></ul> : null}
                     {hero.icon ? 
                         hero.icon.extension === "svg" ? 
-                        <img src={hero.icon.publicURL} alt="" />
-                        : <img src={hero.icon.childImageSharp ? hero.icon.childImageSharp.fluid.src : hero.icon} alt="" />
+                        <img className="icon" src={hero.icon.publicURL} alt="" />
+                        : <img className="icon" src={hero.icon.childImageSharp ? hero.icon.childImageSharp.fluid.src : hero.icon} alt="" />
                     : null }
 
                     {hero.title ? <h1>{hero.title}</h1> : null}
