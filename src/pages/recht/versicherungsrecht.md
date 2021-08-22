@@ -30,24 +30,19 @@ banner:
 article:
   - title: Beratungsfehler
     body: >-
-      ###### Versicherungsrecht - Fehler bei Beratung und Versicherungsabschluss
-
+      #### Versicherungsrecht - Fehler bei Beratung und Versicherungsabschluss
 
 
       Anwalt in Berlin für Versicherungsrecht prueft Klage und Kostenrisiko bei ungesetzlichen VersicherungsbedingungenGerade die fehlerhafte Beratung durch die Versicherungsagenten hat zur Folge, dass die Versicherungsnehmer trotz Prämienzahlung im Schadensfall ihre Versicherungsleistung nicht er- halten. Der im Versicherungsrecht tätige Anwalt erlebt, dass den Versicherungsnehmern Versicher- ungen verkauft wurden, die ihren Bedürfnissen nicht entsprachen.
 
 
-      ###### Beratungsbedingte fehlerhafte Angaben
-
+      #### Beratungsbedingte fehlerhafte Angaben
 
 
       Versicherungsagenten füllen den Versicherungsantrag bewusst falsch aus, um die zu zahlende Versicherungsprämie günstiger erscheinen zu lassen. Für den Versicherungsnehmer hat dies zur Folge, dass er die Gefahr eingeht, dass die Versicherung im Schadensfall nicht zahlt.
 
 
-
-
-      ###### Versicherer haben Informationspflichten
-
+      #### Versicherer haben Informationspflichten
 
 
       Es kommt vor, dass die Versicherungsvertragsbedingungen dem Versicherungsnehmer nicht übergeben werden, so dass dieser keine Kenntnis von seinen Pflichten hat, deren Einhaltung die Voraussetzung für den Erhalt der vollen Versicherungssumme ist. In diesem Fall kann sich die Versicherung in der Regel nicht auf ihre Leistungsfreiheit berufen, selbst wenn der Versicherungsnehmer gegen Vertragsbedingungen verstoßen hat.
@@ -60,19 +55,13 @@ article:
       bewusst als auch unbewusst fehlerhaft auslegen.
 
 
-
-
-      ###### Versicherungsklauseln sind teilweise unwirksam
-
+      #### Versicherungsklauseln sind teilweise unwirksam
 
 
       Viele Klauseln der Versicherungen wurden deshalb von dem Bundesverfassungsgericht wegen Verletzung der Grundrechte und dem Bundesgerichtshof für unwirksam erklärt oder zugunsten des Versicherungsnehmers ausgelegt. Der Bundesgerichtshof berücksichtigt außerdem, dass das Vertragswerk der Versicherungen dem Versicherungsnehmer nahezu unbekannt ist. Der Versicherer hat neben der Übergabe der Versicherungsbedingungen sowohl beim Verkauf der Versicherung als auch im Schadensfall besondere Informationspflichten gegenüber dem Versicherungsnehmer. Diesen Informationspflichten kommen die Versicherungen oft nicht nach.
 
 
-
-
-      ###### Im Schadensfall führt nicht jede Verletzung einer Vertragsbedingung zum Verlust des Versicherungsschutzes
-
+      #### Im Schadensfall führt nicht jede Verletzung einer Vertragsbedingung zum Verlust des Versicherungsschutzes
 
 
       Als weitere Einschränkungen verlangt der Gesetzgeber, dass der Versicherungsnehmer die Vertragsbedingung schlechthin unentschuldbar verletzt haben muss, die das gewöhnliche Maß erheblich übersteigt (grob fahrlässig) oder die Verletzung der Vertragsbedingung bewusst in Kauf nahm (Vorsatz). Bei einer grob fahrlässigen Verletzung der Versicherungsbedingungen hat der Versicherungsnehmer in der Regel einen Anspruch auf einen Teil der Versicherungssumme, bei Vorsatz wird die Versicherung vollständig leistungsfrei. Selbst wenn diese Voraussetzungen gegeben sind, kann der Versicherungsnehmer die Versicherungsleistung noch erhalten, wenn er nachweist, dass die Verletzung der Vertragsbedingung keinen Einfluss auf den aufgetretenen Schaden hatte. Dies kann und soll nur eine beispielhafte Aufzählung sein.
@@ -87,17 +76,13 @@ article:
       im Schadensfall nicht zahlen.
 
 
-
-
-      ###### Falsche Risikobewertung der Versicherung
-
+      #### Falsche Risikobewertung der Versicherung
 
 
       Die Personalkosteneinsparungen bei den Versicherungen führt dazu, dass viele Versicherungen das zu versichernde Objekt nicht vor Vertragsabschluss untersuchen. Dies hat zur Folge, dass diese Versicherungen das zu versichernde Risko nicht kennen. Häufen sich bei einer Versicherung die Schadensfälle, weil diese zu viele schadensgeneigte Objekte mit einer zu niedrigen Prämie versichert hat, versucht diese ihren Gewinn zuhalten, indem sie bei den Versicherungsleistungen spart.
 
 
-      ###### Der Anwalt hilft Ihnen, die Leistungspflicht des Vericherers durchzusetzen
-
+      #### Der Anwalt hilft Ihnen, die Leistungspflicht des Vericherers durchzusetzen
 
 
       So wird Versicherungsnehmern z.B. bei einem Brandschaden oder Wasserschaden mitgeteilt, dass die Versicherung nicht oder nur teilweise leisten wird, weil der Versicherungsnehmer seine Vertragspflichten verletzt habe. Erst nachdem ein Anwalt eingeschaltet wurde, zeigt sich die Versicherung oft zahlungsbereit.
