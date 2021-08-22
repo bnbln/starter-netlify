@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link, graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 import Map from "../../components/Map"
-import icon from "../../assets/message-circle.svg"
 
 function encode(data) {
   return Object.keys(data)

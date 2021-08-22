@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
-import { Link, graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 import Layout from '../../components/Layout'
-import Hero from '../../components/Hero'
 import BlogRoll from '../../components/BlogRoll'
 
 const BlogIndexPage = (props) => {
