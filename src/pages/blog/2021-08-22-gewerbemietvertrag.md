@@ -5,7 +5,7 @@ date: 2021-08-22T22:36:22.893Z
 recht: Mietrecht
 description: "Mietrecht: Der Gewerbemietvertrag kann existenzbedrohend sein"
 featuredpost: false
-featuredimage: https://images.unsplash.com/photo-1526547319484-63dce467060b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80
+featuredimage: /img/photo-1526547319484-63dce467060b.jpeg
 ---
 Der Anwalt für Mietrecht überprüft auch Gewerbemietverträge. Gewerbetreibende unterzeichnen oft Mietverträge völlig unkritisch. Hierbei verkennen sie, dass ein Gewerbemietvertrag existenzgefährdende Belastungen bis zu mehreren hunderttausend Euro beinhalten kann. Sie sehen zunächst nur das vermeintlich günstige Mietangebot, ohne die für den Gewerbemieter finanziell nachteiligen Klauseln zu erkennen. Oft kommt es auch vor, dass die Nebenkostenvorauszahlungen in dem Mietangebot zu niedrig angegeben sind. Das böse Erwachen kommt mit der ersten Nebenkostenabrechnung, aus der sich Nachforderungen von mehreren tausend Euro ergeben können.
 

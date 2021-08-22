@@ -9,7 +9,7 @@ description: Viele Klauseln in den Versicherungs- bedingungen sind sowohl für
   und die Schadensbearbeiter der Versich- erungen ihre Bedingungen sowohl
   bewusst als auch unbewusst fehlerhaft auslegen.
 featuredpost: false
-featuredimage: https://images.unsplash.com/photo-1521791055366-0d553872125f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80
+featuredimage: /img/cytonn-photography-gjao3ztx9gu-unsplash.jpg
 ---
 ### Versicherungsklauseln sind teilweise unwirksam
 
