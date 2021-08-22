@@ -1,0 +1,34 @@
+.kontakt
+  height: 100vh
+  position: relative
+  display: flex
+  flex-direction: column
+  alignItems: center
+  @media screen and (max-width: $phone)
+    height: auto
+  .content
+    padding: 40px
+    background: white
+    width: fit-content
+    display: flex
+    flex-direction: column
+    alignItems: center
+    gap: 20px
+    margin: 80px
+    position: relative
+    @media screen and (max-width: $tablet)
+      padding: $mymarginphone
+    @media screen and (max-width: $phone)
+      padding: $mymarginphone
+      margin: 0px
+  .map
+    position: absolute
+    width: 100%
+    height: 100%
+    z-index: -1
+    @media screen and (max-width: $phone)
+      position: relative
+      z-index: 0
+      width: 100%
+      height: 500px
+

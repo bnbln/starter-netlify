@@ -1,0 +1,85 @@
+body 
+  color: $primary
+
+.primary 
+  color: $primary
+
+.white 
+  color: white
+
+button
+  background: none
+  padding: 0px
+  border: 0px
+
+h1, h2, h3, h4, h5, h6, p, b, i 
+  margin: 0px
+  padding: 0px
+
+p
+  line-height: 140%
+  margin-bottom: 16px
+
+h1 
+  font-family: Roboto
+  font-style: normal
+  font-weight: bold
+  font-size: 47px
+  line-height: 149%
+  @media screen and (max-width: $tablet)
+    font-size: 32px
+  @media screen and (max-width: $phone)
+    font-size: 20px
+
+h2 
+  font-family: Roboto
+  font-style: normal
+  font-weight: bold
+  font-size: 39px
+  line-height: 149%
+  @media screen and (max-width: $tablet)
+    font-size: 24px
+  @media screen and (max-width: $phone)
+    font-size: 18px
+
+.lead 
+  font-family: Roboto
+  font-style: normal
+  font-weight: normal
+  font-size: 20px
+  line-height: 145%
+  letter-spacing: -0.01em
+  @media screen and (max-width: $tablet)
+    font-size: 18px
+  @media screen and (max-width: $phone)
+    font-size: 16px
+
+ul 
+  margin: 0
+  padding: 0
+  margin-left: -8px
+
+li 
+  list-style: none
+  font-family: Roboto
+  font-style: normal
+  font-weight: 500
+  font-size: 28px
+  line-height: 33px
+  letter-spacing: -0.01em
+  margin: 0px
+  @media screen and (max-width: $tablet)
+    font-size: 24px
+  @media screen and (max-width: $phone)
+    font-size: 20px
+  
+
+li::before
+  content: "◼︎"
+  font-size: 40px
+  vertical-align: middle
+  line-height: 33px
+  @media screen and (max-width: $tablet)
+    font-size: 34px
+  @media screen and (max-width: $phone)
+    font-size: 30px

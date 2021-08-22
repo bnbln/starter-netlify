@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, graphql, StaticQuery } from 'gatsby'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 import Map from "../../components/Map"
@@ -10,7 +11,7 @@ function encode(data) {
     .join('&')
 }
 
-export default class Index extends React.Component {
+class Index extends React.Component {
   constructor(props) {
     super(props)
     this.state = { isValidated: false }
@@ -36,6 +37,7 @@ export default class Index extends React.Component {
   }
 
   render() {
+    console.log("Props ", this.props);
     return (
       <Layout data={{title: "Kontakt", lead: "Nehmen Sie kontakt mit uns auf und vereinbaren Sie einen Beratungstermin", icon: icon}}>
         <div>
@@ -57,8 +59,8 @@ export default class Index extends React.Component {
                     <input name="bot-field" onChange={this.handleChange} />
                   </label>
                 </div>
-                <div class="columns">
-                  <div class="column">
+                <div className="columns">
+                  <div className="column">
                     <div className="field">
                     <label className="label" htmlFor={'vorname'}>
                       Vorname
@@ -76,7 +78,7 @@ export default class Index extends React.Component {
                     </div>
                   </div>
                   </div>
-                  <div class="column">
+                  <div className="column">
                     <div className="field">
                     <label className="label" htmlFor={'nachname'}>
                       Nachname
@@ -96,8 +98,8 @@ export default class Index extends React.Component {
                   </div>
                 </div>
     
-                <div class="columns">
-                  <div class="column">
+                <div className="columns">
+                  <div className="column">
                     <div className="field">
                     <label className="label" htmlFor={'adresse'}>
                       Straße und Hausnummer
@@ -115,7 +117,7 @@ export default class Index extends React.Component {
                     </div>
                   </div>
                   </div>
-                  <div class="column">
+                  <div className="column">
                     <div className="field">
                     <label className="label" htmlFor={'stadt'}>
                       PLZ und Stadt
@@ -135,8 +137,8 @@ export default class Index extends React.Component {
                   </div>
                 </div>
 
-                <div class="columns">
-                  <div class="column">
+                <div className="columns">
+                  <div className="column">
                     <div className="field">
                     <label className="label" htmlFor={'email'}>
                       Mailadresse
@@ -154,7 +156,7 @@ export default class Index extends React.Component {
                     </div>
                   </div>
                   </div>
-                  <div class="column">
+                  <div className="column">
                     <div className="field">
                     <label className="label" htmlFor={'telefon'}>
                       Telefonnummer
@@ -207,7 +209,7 @@ export default class Index extends React.Component {
                 </div>
                 <div className="field">
                   <button className="button is-link" type="submit">
-                    Send
+                    Senden
                   </button>
                 </div>
               </form>
@@ -219,3 +221,20 @@ export default class Index extends React.Component {
     )
   }
 }
+
+
+export default () => (
+  <StaticQuery
+    query={graphql`
+      query contactQuery {
+        markdownRemark(frontmatter: {templateKey: {eq: "contact-page"}}) {
+          frontmatter {
+            title
+            templateKey
+          }
+        }
+      }
+    `}
+    render={(data, count) => <Index data={data} count={count} />}
+  />
+)

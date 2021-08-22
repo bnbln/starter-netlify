@@ -1,0 +1,62 @@
+.banner 
+  background: $primary
+  display: grid
+  grid-template-areas: "left right"
+  grid-template-columns: 60% 1fr
+  &.light
+    background: lighten($primary, 75)
+    grid-template-columns: 50% 50%
+    *
+      color: $primary
+  @media screen and (max-width: $phone)
+    grid-template-areas: "left" "right"
+    grid-template-columns: 100% 100%
+  .half
+    padding: $mymargin
+  .left 
+    grid-area: left
+    padding: $mymargin
+    padding-left: 0px
+    &.textonly
+      padding-top: 40px
+      padding-bottom: 40px
+      @media screen and (max-width: $phone)
+        padding: 16px
+      h1
+        text-align: right
+        @media screen and (max-width: $phone)
+          text-align: center
+    @media screen and (max-width: $tablet)
+      padding: $mymargintablet
+      padding-left: 0px
+    @media screen and (max-width: $phone)
+      padding: 0px  
+      margin: 0px 
+  img 
+    width: 100%
+  .right 
+    grid-area: right
+    padding: $mymargin
+    padding-left: 0px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    gap: 20px
+    &.textonly
+      padding-top: 40px
+      padding-bottom: 40px
+      @media screen and (max-width: $phone)
+        padding: 8px
+        align-items: center
+    @media screen and (max-width: $tablet)
+      padding: $mymargintablet    
+      padding-left: 0px
+    @media screen and (max-width: $phone)
+      padding: $mymarginphone
+      padding-bottom: calc(2 * #{$mymarginphone})
+      margin: 0px
+      gap: 16px
+      
+.banner.nr1
+   background: lighten($primary, 80%)
+      

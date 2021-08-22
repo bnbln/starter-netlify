@@ -1,0 +1,77 @@
+.carousel
+  &.page
+    display: grid
+    grid-template-areas: "left right"
+    grid-template-columns: 60% 1fr
+    position: relative
+    @media screen and (max-width: $phone)
+      grid-template-areas: "left" "right"
+      grid-template-columns: 1fr auto
+    .text
+      grid-area: left
+      padding: $mymargin
+      display: flex
+      flex-direction: column
+      justify-content: center
+      gap: 20px
+      position: relative
+      @media screen and (max-width: $tablet)
+        padding: $mymargintablet
+      @media screen and (max-width: $phone)
+        padding: calc(2 * #{$mymarginphone}) $mymarginphone
+        gap: 16px
+  &.single
+    .text.single
+      padding: 0px
+      margin: 0px
+      padding-left: 0px
+  .textslider 
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    // border-top: 1px solid $primary
+    position: relative
+    margin-top: 48px
+    width: 100%
+    a
+      flex: 1 1 0px
+      max-width: 200px
+      .item 
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+        opacity: 0.6
+        height: 125px
+        position: relative
+        cursor: pointer
+        &:hover, &.active 
+          opacity: 1
+        &.active::before 
+          content: ""
+          position: absolute
+          top: -44.5px
+          width: 100%
+          border: 4px solid $secondary
+  
+  .imagesliderwrapper 
+    grid-area: right
+    padding: $mymargin
+    padding-left: 0px
+    position: relative
+    @media screen and (max-width: $tablet)
+      padding: $mymargintablet
+    @media screen and (max-width: $phone)
+      padding: $mymarginphone
+  .imageslider 
+    position: relative
+    width: 100%
+    padding-top: 100%
+    overflow: hidden
+    img 
+      position: absolute
+      width: 100%
+      height: auto
+      top: 0px
+      left: 0px

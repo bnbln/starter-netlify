@@ -1,0 +1,89 @@
+.hero.dark .layout header nav
+  background: $primary
+
+header 
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  padding: 0px $mymargin
+  gap: 24px
+  z-index: 200
+  @media screen and (max-width: $tablet)
+    padding: 0px $mymargintablet
+  @media screen and (max-width: $phone)
+    padding: 0px $mymarginphone
+    height: 60px
+    background: $primary
+  a 
+    text-decoration: none
+    color: $primary
+    @media screen and (max-width: $phone)
+      color: white
+      &:hover, &:focus
+        color: white
+  .hamburger
+    display: none
+    @media screen and (max-width: $phone)
+      display: inherit
+  nav 
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    background: white
+    padding: 1rem
+    z-index: 1
+    @media screen and (max-width: $phone)
+      display: none
+    a.navbar-item 
+      color: $primary
+      opacity: 0.6
+      font-family: Roboto
+      font-style: normal
+      font-weight: bold
+      font-size: 14px
+      line-height: 14px
+      letter-spacing: -0.01em
+      text-decoration: none
+      &.active, &:hover, &:focus, &:focus-within, &[aria-current="page"], &[aria-current]:not([aria-current="false"])
+        opacity: 1
+        color: $primary
+        background-color: lighten($secondary, 55%)
+.mobilemenu
+  display: none
+  position: fixed
+  left: 0px
+  right: 0px
+  bottom: 0px
+  top: 0px
+  width: 100%
+  height: 100vh
+  z-index: 100
+  background: $primary
+  color: white
+  padding-top: 60px
+  flex-direction: row
+  align-items: center
+  justify-content: center
+  width: 100%
+  main
+    display: flex
+    flex-direction: column
+    padding: $mymarginphone
+    text-align: center
+    justify-content: space-around
+    height: 80vh
+    a.navbar-item
+      font-weight: 300
+      font-size: 20px
+      line-height: 23px
+      text-align: center
+      letter-spacing: -0.01em
+      color: white
+      &.active
+        opacity: 0.5
+      &:hover, &:focus, &:focus-within
+        background: none
+  @media screen and (max-width: $phone)
+    &.visible
+      display: inherit

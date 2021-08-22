@@ -1,0 +1,109 @@
+.news 
+  display: flex
+  position: relative
+  flex-direction: row
+  padding: 0px $mymargin
+  gap: 40px
+  margin-bottom: 80px
+  @media screen and (max-width: $tablet)
+    padding: 0px $mymargintablet
+  @media screen and (max-width: $phone)
+      padding: 0px $mymarginphone
+  .articles-small
+    gap: 20px
+    display: flex
+    flex-direction: column
+  .left 
+    width: 65%
+    position: relative
+  .right 
+    width: 35%
+    position: relative
+    display: flex
+    flex-direction: column
+    gap: 16px
+  article.small 
+    display: flex
+    gap: 16px
+    flex-direction: row
+    align-items: center
+    img
+      width: 150px
+      height: 150px
+      margin-bottom: 0px
+      @media screen and (max-width: $phone)
+        width: 80px
+        height: 80px
+  article  
+    img
+      width: 100%
+      height: auto
+      margin-bottom: 24px
+    main 
+      display: flex
+      flex-direction: column
+      gap: 16px
+      @media screen and (max-width: $phone)
+        gap: 8px
+  .dach
+    font-family: Roboto
+    font-style: normal
+    font-weight: 500
+    font-size: 14px
+    line-height: 20px
+    display: flex
+    align-items: center
+    letter-spacing: 0.1em
+    text-transform: uppercase
+    color: #258EA6
+    margin-bottom: 0px
+    @media screen and (max-width: $phone)
+      font-size: 10px
+      line-height: 100%
+  .headline 
+    font-family: Roboto
+    font-style: normal
+    font-weight: 900
+    font-size: 24px
+    line-height: 36px
+    color: #1D1D1D
+    margin-bottom: 0p
+  .lead 
+    font-family: Roboto
+    font-style: normal
+    font-weight: normal
+    font-size: 14px
+    line-height: 149%
+    margin-bottom: 0p
+    color: rgba(23, 35, 64, 0.6)
+
+
+.news .small .headline
+  font-family: Roboto
+  font-style: normal
+  font-weight: 900
+  font-size: 16px
+  line-height: 21px
+  color: #1D1D1D
+  @media screen and (max-width: $phone)
+      font-size: 14px
+      line-height: 120%
+
+.news .more 
+  font-family: Roboto
+  font-style: normal
+  font-weight: 900
+  font-size: 12px
+  line-height: 193.9%
+  text-decoration-line: underline
+  text-transform: uppercase
+  color: #1D1D1D
+  @media screen and (max-width: $phone)
+    display: none
+
+@media only screen and (max-width: 900px) 
+  .news 
+    flex-direction: column
+    .left, .right 
+      width: 100%
+    
