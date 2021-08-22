@@ -38,8 +38,9 @@ class Index extends React.Component {
 
   render() {
     console.log("Props ", this.props);
+    const data = this.props.data.markdownRemark.frontmatter
     return (
-      <Layout data={{title: "Kontakt", lead: "Nehmen Sie kontakt mit uns auf und vereinbaren Sie einen Beratungstermin", icon: icon}}>
+      <Layout data={data}>
         <div>
           <div className="mymargins">
             <div className="content">
@@ -231,6 +232,23 @@ export default () => (
           frontmatter {
             title
             templateKey
+            lead
+            icon {
+              publicURL
+              extension
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            image {
+              childImageSharp {
+                fluid(maxWidth: 2048, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

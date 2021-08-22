@@ -41,16 +41,6 @@ collections:
           - {label: CTA Link, name: link, widget: string}
           - {label: Bild, name: image, widget: image}
           - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/contact.md"
-        label: "Kontakt"
-        name: "kontakt"
-        fields:
-        - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page"}
-        - {label: "Title", name: "title", widget: "string"}
-        - {label: Lead, name: lead, widget: string}
-        - {label: Icon, name: icon, widget: image}
-        - {label: Bild, name: image, widget: image}
-        - {label: "Body", name: "body", widget: "markdown"}
       - file: "src/pages/news.md"
         label: "Aktuelles"
         name: "aktuelles"
@@ -60,7 +50,15 @@ collections:
         - {label: Lead, name: lead, widget: string}
         - {label: Icon, name: icon, widget: image}
         - {label: Bild, name: image, widget: image}
-        - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/contact.md"
+        label: "Kontakt"
+        name: "kontakt"
+        fields:
+        - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page"}
+        - {label: "Title", name: "title", widget: "string"}
+        - {label: Lead, name: lead, widget: string}
+        - {label: Icon, name: icon, widget: image}
+        - {label: Bild, name: image, widget: image}
       - file: "src/pages/impressum/index.md"
         label: "Impressum"
         name: "impressum"

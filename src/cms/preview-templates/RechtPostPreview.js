@@ -9,6 +9,7 @@ const RechtPostPreview = ({ entry, getAsset, widgetFor }) => {
   return (
     <Layout data={data || {image: getAsset(data.image), icon: getAsset(data.icon)}} isPreview={true}>
     <RechtPostTemplate
+      data={data}
       banner={data.banner}
       article={data.article}
     />

@@ -10,13 +10,12 @@ import { withPrefix, Link } from "gatsby";
 import metadatafromyml from "../../content/settings/global.yml";
 
 const TemplateWrapper = (props) => {
-  console.log("COOKIE: ", getCookieConsentValue("gdpr"));
-  console.log("Layout Props", props);
+  // console.log("COOKIE: ", getCookieConsentValue("gdpr"));
+  // console.log("Layout Props", props);
   const [menu, setMenu] = useState(false)
   function getMenu (menustate) {
     setMenu(menustate)
   }
-  console.log("Menu", menu);
   return (
     <div className={ menu === false ? "layout menu-closed" : "layout menu-open"}>
       <Helmet>

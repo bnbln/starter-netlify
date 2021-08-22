@@ -17,7 +17,7 @@ export const RechtPostTemplate = ({
   article,
   helmet,
 }) => {
-  console.log("data", data.markdownRemark );
+  console.log("data", data );
   return (
     <>
       {helmet || ''}
@@ -30,20 +30,20 @@ export const RechtPostTemplate = ({
         </Banner>
       )) : null}
       {
-      data.markdownRemark.frontmatter.title === "Mietrecht" ?
+      data.title === "Mietrecht" ?
         <BlogRollMietrecht />
       :
-      data.markdownRemark.frontmatter.title === "Verkehrsrecht" ?
+      data.title === "Verkehrsrecht" ?
         <BlogRollVerkehrsrecht />
       :
-      data.markdownRemark.frontmatter.title === "Verkehrsrecht" ?
+      data.title === "Verkehrsrecht" ?
         <BlogRollVersicherungsrecht />
       :
       <BlogRoll />
       }
       {article.map((item,i)=> (
-        <section className="left right top" key={"section"+i}>
-          <h4 id={i}>{item.title}</h4>
+        <section className="left right top content" key={"section"+i}>
+          <h3 id={i}>{item.title}</h3>
           <ReactMarkdown>{item.body}</ReactMarkdown>
         </section>
       ))}
@@ -74,7 +74,7 @@ const RechtPost = ({ data }) => {
       list: post.frontmatter.article
     }} variant="light">
       <RechtPostTemplate
-        data={data}
+        data={data.markdownRemark.frontmatter}
         banner={data.markdownRemark.frontmatter.banner}
         article={data.markdownRemark.frontmatter.article}
         content={post.html}

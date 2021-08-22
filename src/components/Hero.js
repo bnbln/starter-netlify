@@ -12,7 +12,6 @@ function Hero(props) {
     const setMenu = props.menu
     setMenu(toggle)
     var hero = props.hero
-    console.log(props);
     return(
     <div className={ "hero" + " " + props.variant }>
         <div className="layout">
