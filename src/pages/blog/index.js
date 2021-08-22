@@ -1,14 +1,17 @@
-import React from 'react'
-
+import React, {useState} from 'react'
 import Layout from '../../components/Layout'
 import Hero from '../../components/Hero'
 import BlogRoll from '../../components/BlogRoll'
 
-export default class BlogIndexPage extends React.Component {
-  render() {
+const BlogIndexPage = () => {
+    const [menu, setMenu] = useState(false)
+    function getMenu (menustate) {
+      setMenu(menustate)
+    }
+    console.log(menu);
     return (
-      <Layout>
-        <Hero hero={{title: "Aktuelles", lead: "Mietrecht in Berlin ist oft umstritten - Renovierungspflicht, Wasserschaden, Reparaturen und Räumung"}} variant="dark" />
+      <Layout className={ menu === false ? "layout menu-closed" : "layout menu-open"}>
+        <Hero menu={getMenu} hero={{title: "Aktuelles", lead: "Mietrecht in Berlin ist oft umstritten - Renovierungspflicht, Wasserschaden, Reparaturen und Räumung"}} variant="dark" />
         <div
           className="full-width-image-container margin-top-0"
           style={{
@@ -26,4 +29,5 @@ export default class BlogIndexPage extends React.Component {
       </Layout>
     )
   }
-}
+
+export default BlogIndexPage

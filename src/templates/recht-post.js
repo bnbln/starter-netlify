@@ -4,9 +4,11 @@ import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
 import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
-import Hero from "../components/Hero"
+import { HTMLContent } from '../components/Content'
 import BlogRoll from '../components/BlogRoll'
+import BlogRollMietrecht from '../components/BlogRollMietrecht'
+import BlogRollVerkehrsrecht from '../components/BlogRollVerkehrsrecht'
+import BlogRollVersicherungsrecht from '../components/BlogRollVersicherungsrecht'
 import Banner from '../components/Banner'
 
 export const RechtPostTemplate = ({
@@ -15,6 +17,7 @@ export const RechtPostTemplate = ({
   article,
   helmet,
 }) => {
+  console.log("data", data.markdownRemark );
   return (
     <>
       {helmet || ''}
@@ -26,7 +29,18 @@ export const RechtPostTemplate = ({
           </div>
         </Banner>
       )) : null}
+      {
+      data.markdownRemark.frontmatter.title === "Mietrecht" ?
+        <BlogRollMietrecht />
+      :
+      data.markdownRemark.frontmatter.title === "Verkehrsrecht" ?
+        <BlogRollVerkehrsrecht />
+      :
+      data.markdownRemark.frontmatter.title === "Verkehrsrecht" ?
+        <BlogRollVersicherungsrecht />
+      :
       <BlogRoll />
+      }
       {article.map((item,i)=> (
         <section className="left right top" key={"section"+i}>
           <h4 id={i}>{item.title}</h4>

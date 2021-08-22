@@ -30,46 +30,29 @@ function Carousel(props) {
             
             <div className="imagesliderwrapper">
                 <div className="imageslider">
-                    <Transition
-                        items={active}
-                        from={{ opacity: 0, translateX: 400 }}
-                        enter={{ opacity: 1, translateX: 0 }}
-                        leave={{ opacity: 0, translateX: -400 }}
-                        reverse={active}
-                        delay={250}
-                        config={config.default}
-                    >
-                        {({ opacity, translateX }, item) =>
-                        item === 0 ? (
-                            <animated.img src={
-                                data.posts.edges[0].node.frontmatter.picture.childImageSharp ? data.posts.edges[0].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[0].node.frontmatter.picture
-                            } className={active === 0 ? "item active" : "item"} alt=""
-                                style={{
-                                    opacity: opacity,
-                                    transform: translateX.to(y => `translateX(${y}px)`),
-                                }}
-                            />
-                        ) : item === 1 ? (
-                            <animated.img src={
-                                data.posts.edges[1].node.frontmatter.picture.childImageSharp ? data.posts.edges[1].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[1].node.frontmatter.picture
-                            } className={active === 1 ? "item active" : "item"} alt=""
-                            style={{
-                                opacity: opacity,
-                                transform: translateX.to(y => `translateX(${y}px)`),
-                            }}
-                            />
-                        ) : (
-                            <animated.img src={
-                                data.posts.edges[2].node.frontmatter.picture.childImageSharp ? data.posts.edges[2].node.frontmatter.picture.childImageSharp.fluid.src : data.posts.edges[2].node.frontmatter.picture
-                            } className={active === 2 ? "item active" : "item"} alt="" 
-                            style={{
-                                opacity: opacity,
-                                transform: translateX.to(y => `translateX(${y}px)`),
-                            }}
-                            />
-                        )
-                        }
-                    </Transition>
+                <Transition
+              items={active}
+              from={{ opacity: 0, translateX: 400 }}
+              enter={{ opacity: 1, translateX: 0 }}
+              leave={{ opacity: 0, translateX: -400 }}
+              reverse={active}
+              delay={250}
+              config={config.default}
+          >
+              {({ opacity, translateX }, item) =>
+              data.posts.edges.map((post, i) => 
+                item === i ? 
+                      <animated.img src={
+                      post.node.frontmatter.picture.childImageSharp ? post.node.frontmatter.picture.childImageSharp.fluid.src : post.node.frontmatter.picture
+                  } className={ i === active ? "item active" : "item"} alt=""
+                      style={{
+                          opacity: opacity,
+                          transform: translateX.to(y => `translateX(${y}px)`),
+                      }}
+                  />
+                  : null
+            )}
+          </Transition>
                 </div>
             </div>
         </div>

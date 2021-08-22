@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { DatenschutzPageTemplate } from '../../templates/datenschutz-page'
 import Layout from "../../components/Layout"
-import { Link } from 'gatsby'
 
 const DatenschutzPagePreview = ({ entry, widgetFor, getAsset }) => {
   const data = entry.getIn(['data']).toJS()

@@ -85,10 +85,10 @@ BlogRoll.propTypes = {
 export default () => (
   <StaticQuery
     query={graphql`
-      query BlogRollQuery {
+      query MietrechtQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+          filter: { frontmatter: { recht: {eq: "Mietrecht"}, templateKey: { eq: "blog-post" } } }
         ) {
           edges {
             node {

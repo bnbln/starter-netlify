@@ -19,12 +19,19 @@ $mymargintablet: 3rem
   font-family: "Roboto"
 
 // Font
+body 
+  color: $primary
 
 .primary 
   color: $primary
 
 .white 
   color: white
+
+button
+  background: none
+  padding: 0px
+  border: 0px
 
 h1, h2, h3, h4, h5, h6, p, b, i 
   margin: 0px
@@ -68,6 +75,28 @@ h2
   @media screen and (max-width: $phone)
     font-size: 16px
 
+button.button.is-link
+  text-decoration: none
+  padding: 16px 32px
+  font-weight: bold
+  font-size: 16px
+  line-height: 100%
+  letter-spacing: -0.01em
+  text-transform: uppercase
+  color: white
+  display: flex
+  width: max-content
+  border-color: $secondary
+  cursor: pointer
+  white-space: nowrap
+  height: auto
+  border-radius: 0px
+  background: $secondary
+  &:hover, &:active, &:focus, &:focus-within
+    opacity: 0.5
+    background: $secondary
+    
+
 ul 
   margin: 0
   padding: 0
@@ -81,6 +110,7 @@ li
   font-size: 28px
   line-height: 33px
   letter-spacing: -0.01em
+  margin: 0px
   @media screen and (max-width: $tablet)
     font-size: 24px
   @media screen and (max-width: $phone)
@@ -129,9 +159,31 @@ li::before
   @media screen and (max-width: $phone)
     padding: $mymarginphone
 
+.intro
+  position: fixed
+  width: 100vw
+  height: 100vh
+  top: 0px
+  left: 0px
+  right: 0px
+  bottom: 0px
+  background: $primary
+  z-index: 500
+  display: flex
+  justify-content: center
+  align-items: center
+  h1
+    font-size: 5rem 
+    color: white
+    text-align: center
 // Layout
 .layout 
   position: relative
+  &.menu-closed
+    position: relative
+  &.menu-open
+    @media screen and (max-width: $phone)
+      position: fixed
   .grid 
     display: grid
     grid-template-areas: "head image" "main image"
@@ -140,7 +192,7 @@ li::before
     @media screen and (max-width: $phone)
       grid-template-areas: "head" "image" "main"
       grid-template-rows: auto auto
-      grid-template-columns: auto auto
+      grid-template-columns: 1fr auto
     & header 
       grid-area: head
     .text 
@@ -155,8 +207,6 @@ li::before
         padding-right: $mymargintablet
       @media screen and (max-width: $phone)
         padding: $mymarginphone 
-      * 
-        margin: 20px 0px
         @media screen and (max-width: $phone)
           margin: 8px 0px
       h1, .lead 
@@ -177,6 +227,8 @@ li::before
     header
       a 
         color: white
+      &:hover
+        color: orange
     .primary
       color: white
   .imageslider
@@ -193,6 +245,8 @@ li::before
     gap: 10px
     .button
       margin: 0px
+      text-transform: initial
+      padding: 16px 16px
   img.icon
     width: 5rem
     height: 5rem
@@ -235,6 +289,8 @@ header
     color: $primary
     @media screen and (max-width: $phone)
       color: white
+      &:hover, &:focus
+        color: white
   .hamburger
     display: none
     @media screen and (max-width: $phone)
@@ -243,14 +299,13 @@ header
     display: flex
     flex-direction: row
     align-items: flex-start
-    gap: 16px
     background: white
     padding: 1rem
     z-index: 1
     @media screen and (max-width: $phone)
       display: none
-    a 
-      color: var(--primary)
+    a.navbar-item 
+      color: $primary
       opacity: 0.6
       font-family: Roboto
       font-style: normal
@@ -259,8 +314,10 @@ header
       line-height: 14px
       letter-spacing: -0.01em
       text-decoration: none
-      & .active, &:hover, &[aria-current="page"], &[aria-current]:not([aria-current="false"])
+      &.active, &:hover, &:focus, &:focus-within, &[aria-current="page"], &[aria-current]:not([aria-current="false"])
         opacity: 1
+        color: $primary
+        background-color: lighten($secondary, 55%)
 .mobilemenu
   display: none
   position: fixed
@@ -274,6 +331,10 @@ header
   background: $primary
   color: white
   padding-top: 60px
+  flex-direction: row
+  align-items: center
+  justify-content: center
+  width: 100%
   main
     display: flex
     flex-direction: column
@@ -281,12 +342,17 @@ header
     text-align: center
     justify-content: space-around
     height: 80vh
-    a
+    a.navbar-item
       font-weight: 300
       font-size: 20px
       line-height: 23px
       text-align: center
       letter-spacing: -0.01em
+      color: white
+      &.active
+        opacity: 0.5
+      &:hover, &:focus, &:focus-within
+        background: none
   @media screen and (max-width: $phone)
     &.visible
       display: inherit
@@ -316,9 +382,14 @@ footer
       display: flex
       flex-direction: column
       nav 
-        a
+        a.navbar-item
           display: flex
           margin-bottom: 8px
+          color: white
+          padding: 0px
+          bottom: 16px
+          &:hover, &:focus, &:focus-within
+            background: none
   .copyright
     font-weight: 300
     font-size: 14px
@@ -403,7 +474,7 @@ footer
     position: relative
     @media screen and (max-width: $phone)
       grid-template-areas: "left" "right"
-      grid-template-columns: auto auto
+      grid-template-columns: 1fr auto
     .text
       grid-area: left
       padding: $mymargin
@@ -472,7 +543,6 @@ footer
       height: auto
       top: 0px
       left: 0px
-    
 // Map
 .kontakt
   height: 100vh
@@ -634,15 +704,25 @@ a.button
   color: $primary
   display: flex
   width: max-content
+  border-color: $primary
+  cursor: pointer
+  white-space: nowrap
+  height: auto
+  border-radius: 0px
   &.primary
     background: $primary
+    border-color: $primary
     color: white
   &.secondary
     background: $secondary
+    border-color: $secondary
     color: white
   &.white
     background: white
+    border-color: white
     color: $primary
+  &:hover
+    opacity: 0.8
 
 // Cookie
 .CookieConsent

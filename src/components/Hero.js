@@ -1,10 +1,7 @@
 import React, {useState} from "react";
 import { Link } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
-
 import Logo from '../components/Logo'
 import Button from '../components/Button'
-
 import meta from "../../content/settings/global.yml"
 import menu from "../assets/menu.svg"
 import close from "../assets/x.svg"
@@ -12,9 +9,12 @@ import close from "../assets/x.svg"
 
 function Hero(props) {
     const [toggle, setToggle] = useState(false)
+    const setMenu = props.menu
+    setMenu(toggle)
     var hero = props.hero
+    console.log(props);
     return(
-    <div className={"hero " + props.variant}>
+    <div className={ "hero" + " " + props.variant }>
         <div className="layout">
             <div className="grid">
                 <header>
@@ -23,19 +23,23 @@ function Hero(props) {
                     <>
                         <div className="hamburger">
                             {toggle === false ?
-                                <a role="menu" onClick={()=> setToggle(!toggle)}><img src={menu} /></a>
+                            <button onClick={()=> setToggle(!toggle)} role="menu">
+                                <img src={menu} alt="open menu" />
+                            </button>
                             :
-                                <a role="menu" onClick={()=> setToggle(!toggle)}><img src={close} /></a>
+                            <button onClick={()=> setToggle(!toggle)} role="menu">
+                                <img src={close} alt="close menu" />
+                            </button>
                             }
                         </div>
                         <nav>
-                            {meta.menu.map((item, i)=> <Link className="navbar-item" to={item.to} key={"menu-"+i}>{item.name}</Link>)}
+                            {meta.menu.map((item, i)=> <Link className="navbar-item" activeClassName="active" to={item.to} onClick={()=> setToggle(!toggle)} key={"menu-"+i}>{item.name}</Link>)}
                         </nav>
                     </>
                     }
                 </header>
             <div className="text">
-                <div className="hero primary">
+                <div className="hero">
                     {hero.dachzeile ? <ul><li>{hero.dachzeile}</li></ul> : null}
                     {hero.icon ? 
                         hero.icon.extension === "svg" ? 
@@ -57,24 +61,23 @@ function Hero(props) {
                 </div>
             </div>
             <div className="image" style={{position: "relative"}}>
-                {hero.image ?
-                <BackgroundImage
-                Tag="div"
-                fluid={!!hero.image.childImageSharp ? hero.image.childImageSharp.fluid : hero.image}
-                backgroundColor={`#040e18`}
-                style={{
-                    width: "100%", height: "100%"
-                }}
-                > 
-            </BackgroundImage>
-            : props.imageslider ? props.imageslider : null}
+                { hero.image ? 
+                    <div className="imageWrapper" style={{
+                        width: "100%",
+                        height: "100%",
+                        background: "url("+(hero.image.childImageSharp ? hero.image.childImageSharp.fluid.src : hero.image)+") center center",
+                        backgroundSize: "cover"
+                    }}>
+                    </div>
+                : props.imageslider ? props.imageslider : null}
+
             </div>
         </div>
     </div>
     <div className={toggle === true ? "mobilemenu visible" : "mobilemenu"}>
         <main>
-            {meta.menu.map((item, i)=> <Link className="navbar-item" to={item.to} key={"menu-"+i}>{item.name}</Link>)}
-            {meta.footermenu.map((item, i)=> <Link className="navbar-item" to={item.to} key={"menu-"+i}>{item.name}</Link>)}
+            {meta.menu.map((item, i)=> <Link className="navbar-item" activeClassName="active" to={item.to} key={"menu-"+i}>{item.name}</Link>)}
+            {meta.footermenu.map((item, i)=> <Link className="navbar-item" activeClassName="active" to={item.to} key={"menu-"+i}>{item.name}</Link>)}
         </main>
     </div>
 </div>

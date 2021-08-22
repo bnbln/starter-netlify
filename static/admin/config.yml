@@ -64,7 +64,7 @@ collections:
   - name: "recht"
     label: "Rechtsfragen"
     folder: "src/pages/recht"
-    create: true
+    create: false
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "recht-post"}
@@ -89,16 +89,6 @@ collections:
       - {label: "Featured Image", name: "featuredimage", widget: image}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-  - label: "Kontakt"
-    name: "contact"
-    folder: "src/pages/contact"
-    fields: 
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact-page"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: Lead, name: lead, widget: string}
-      - {label: Icon, name: icon, widget: image}
-      - {label: Bild, name: image, widget: image}
-      - {label: "Body", name: "body", widget: "markdown"}
   - name: "settings"
     label: "Einstellungen"
     delete: false

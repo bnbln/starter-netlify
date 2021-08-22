@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ImpressumPageTemplate } from '../../templates/impressum-page'
 import Layout from "../../components/Layout"
-import { Link } from 'gatsby'
 
 const ImpressumPagePreview = ({ entry, widgetFor, getAsset }) => {
   const data = entry.getIn(['data']).toJS()
