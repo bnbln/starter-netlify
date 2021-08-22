@@ -7,7 +7,7 @@ description: Nach einem Verkehrsunfall ist jeder aufgeregt. Zunächst ist es
   wichtig, Ruhe zu bewahren, die Unfallstelle abzusichern, falls erforderlich,
   erste Hilfe zu leisten und einen Krankenwagen zu rufen.
 featuredpost: false
-featuredimage: https://images.unsplash.com/photo-1597328290883-50c5787b7c7e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80
+featuredimage: /img/photo-1597328290883-50c5787b7c7e.jpeg
 ---
 ### Unbeteiligte sind wichtige Zeugen
 
